@@ -420,6 +420,75 @@ export const AdminDashboardPage = () => {
               ></textarea>
             </div>
 
+            {/* Meeting Schedule / Agenda Editor */}
+            <div className="space-y-4 pt-4 border-t border-pink-100 text-left">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <h3 className="text-sm font-extrabold text-pink-950">Meeting Schedule / Timeline</h3>
+                  <p className="text-xs text-gray-600">Customize each session time & title displayed on the VIP invitation pass.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newAgenda = [...(eventForm.agenda || []), { time: '12:00 PM', title: 'New Schedule Session', desc: '' }];
+                    setEventForm({ ...eventForm, agenda: newAgenda });
+                  }}
+                  className="px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-pink-100 text-pink-800 hover:bg-pink-600 hover:text-white transition flex items-center gap-1.5 shadow-sm shrink-0"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add Session</span>
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                {(eventForm.agenda || []).map((item, idx) => (
+                  <div key={idx} className="p-3.5 rounded-2xl bg-pink-50/70 border border-pink-200 flex flex-col sm:flex-row items-center gap-3">
+                    <div className="w-full sm:w-36 shrink-0">
+                      <label className="block text-[10px] font-bold uppercase text-pink-900 mb-1">Time</label>
+                      <input
+                        type="text"
+                        value={item.time}
+                        onChange={(e) => {
+                          const updated = [...eventForm.agenda];
+                          updated[idx] = { ...updated[idx], time: e.target.value };
+                          setEventForm({ ...eventForm, agenda: updated });
+                        }}
+                        placeholder="12:00 PM"
+                        className="w-full px-3 py-2 rounded-xl bg-white border border-pink-200 text-xs font-bold text-pink-950 outline-none focus:border-pink-500"
+                      />
+                    </div>
+
+                    <div className="w-full flex-1">
+                      <label className="block text-[10px] font-bold uppercase text-pink-900 mb-1">Session Title</label>
+                      <input
+                        type="text"
+                        value={item.title}
+                        onChange={(e) => {
+                          const updated = [...eventForm.agenda];
+                          updated[idx] = { ...updated[idx], title: e.target.value };
+                          setEventForm({ ...eventForm, agenda: updated });
+                        }}
+                        placeholder="Session title"
+                        className="w-full px-3 py-2 rounded-xl bg-white border border-pink-200 text-xs font-semibold text-gray-900 outline-none focus:border-pink-500"
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const updated = eventForm.agenda.filter((_, i) => i !== idx);
+                        setEventForm({ ...eventForm, agenda: updated });
+                      }}
+                      className="p-2.5 rounded-xl bg-rose-100 text-rose-700 hover:bg-rose-600 hover:text-white transition shrink-0 self-end sm:self-center"
+                      title="Remove Session"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <button
               type="submit"
               className="px-8 py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center gap-2"

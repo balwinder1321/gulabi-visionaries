@@ -23,18 +23,18 @@ export const initialEvent = {
   name: "Gulabi Visionaries Annual Business Summit & Networking Meet",
   date: "2026-11-15",
   day: "Sunday",
-  time: "10:30 AM - 02:00 PM IST",
+  time: "12:00 PM - 03:30 PM IST",
   venue: "The Grand Pink Ballroom & Convention Center",
   address: "MI Road, C Scheme, Ashok Nagar, Jaipur, Rajasthan 302001",
   description: "Join Rajasthan's finest women entrepreneurs for an extraordinary gathering of business networking, referral exchange, spotlight podcasts, and collaborative growth. Discover new markets, connect with 300+ visionary leaders, and elevate your enterprise.",
   googleMapsUrl: "https://maps.google.com/?q=MI+Road,+Jaipur,+Rajasthan",
   bannerImage: "/assets/event_invitation_pic.png",
   agenda: [
-    { time: "10:30 AM", title: "Registration & Welcome High Tea", desc: "Open networking with fellow members and distinguished guests." },
-    { time: "11:00 AM", title: "Keynote: Rising Together in 2026", desc: "Opening address by Founders Pratibha Chaturvedi & Prachi Agrawal." },
-    { time: "11:30 AM", title: "Feature Showcase & Door Prizes", desc: "Spotlight presentations by feature members with door prize giveaways." },
-    { time: "12:15 PM", title: "Referral Exchange & Business Pass", desc: "Direct 1-on-1 business referral sharing and collaboration commitments." },
-    { time: "01:00 PM", title: "Live Podcast & Networking Lunch", desc: "On-site podcast interview sessions for YouTube & Spotify followed by lunch." }
+    { time: "12:00 PM", title: "Registration & Welcome High Tea", desc: "Open networking with fellow members and distinguished guests." },
+    { time: "12:30 PM", title: "Keynote: Rising Together in 2026", desc: "Opening address by Founders Pratibha Chaturvedi & Prachi Agrawal." },
+    { time: "01:00 PM", title: "Feature Showcase & Door Prizes", desc: "Spotlight presentations by feature members with door prize giveaways." },
+    { time: "01:45 PM", title: "Referral Exchange & Business Pass", desc: "Direct 1-on-1 business referral sharing and collaboration commitments." },
+    { time: "02:30 PM", title: "Live Podcast & Networking Lunch", desc: "On-site podcast interview sessions for YouTube & Spotify followed by lunch." }
   ]
 };
 
