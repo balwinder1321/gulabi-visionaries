@@ -20,21 +20,20 @@ export const initialOrganisation = {
 };
 
 export const initialEvent = {
-  name: "Gulabi Visionaries Annual Business Summit & Networking Meet",
-  date: "2026-11-15",
-  day: "Sunday",
-  time: "12:00 PM - 03:30 PM IST",
-  venue: "The Grand Pink Ballroom & Convention Center",
-  address: "MI Road, C Scheme, Ashok Nagar, Jaipur, Rajasthan 302001",
-  description: "Join Rajasthan's finest women entrepreneurs for an extraordinary gathering of business networking, referral exchange, spotlight podcasts, and collaborative growth. Discover new markets, connect with 300+ visionary leaders, and elevate your enterprise.",
-  googleMapsUrl: "https://maps.google.com/?q=MI+Road,+Jaipur,+Rajasthan",
+  name: "Field Visit at Gopala Poshak Bhandar",
+  date: "2026-10-15",
+  day: "Thursday",
+  time: "12:00 PM Onwards",
+  venue: "Gopala Poshak Bhandar by Nikkita Agarwal",
+  address: "113 Kailashpuri, Behind Khandaka Hospital, Tonk Road, Jaipur, Rajasthan 302018",
+  description: "Join Gulabi Visionaries for an exclusive Field Visit at Gopala Poshak Bhandar by Nikkita Agarwal. Discover divine handcrafted Laddu Gopal poshaks, festive heavy-work & daily cotton sets for Thakur Ji.",
+  googleMapsUrl: "https://www.google.com/maps?q=26.8554959,75.796636&z=17&hl=en",
   bannerImage: "/assets/event_invitation_pic.png",
   agenda: [
-    { time: "12:00 PM", title: "Registration & Welcome High Tea", desc: "Open networking with fellow members and distinguished guests." },
-    { time: "12:30 PM", title: "Keynote: Rising Together in 2026", desc: "Opening address by Founders Pratibha Chaturvedi & Prachi Agrawal." },
-    { time: "01:00 PM", title: "Feature Showcase & Door Prizes", desc: "Spotlight presentations by feature members with door prize giveaways." },
-    { time: "01:45 PM", title: "Referral Exchange & Business Pass", desc: "Direct 1-on-1 business referral sharing and collaboration commitments." },
-    { time: "02:30 PM", title: "Live Podcast & Networking Lunch", desc: "On-site podcast interview sessions for YouTube & Spotify followed by lunch." }
+    { time: "12:00 PM", title: "Arrival & Welcome at Gopala Poshak Bhandar", desc: "Welcome high tea & open networking." },
+    { time: "12:20 PM", title: "Showcase of Handcrafted Laddu Gopal Poshaks", desc: "Exquisite designs, premium fabrics & all sizes (0-6+)." },
+    { time: "01:00 PM", title: "Business Networking & Spotlight Session", desc: "Member introductions and referral sharing." },
+    { time: "01:45 PM", title: "Photo Session & High Tea", desc: "Commemorative group photos & refreshment." }
   ]
 };
 

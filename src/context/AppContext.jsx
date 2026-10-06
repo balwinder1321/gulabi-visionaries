@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
   });
 
   const [eventData, setEventData] = useState(() => {
-    const saved = localStorage.getItem('gulabi_event');
+    const saved = localStorage.getItem('gulabi_event_v2');
     return saved ? JSON.parse(saved) : initialEvent;
   });
 
@@ -34,7 +34,7 @@ export const AppProvider = ({ children }) => {
   }, [organisation]);
 
   useEffect(() => {
-    localStorage.setItem('gulabi_event', JSON.stringify(eventData));
+    localStorage.setItem('gulabi_event_v2', JSON.stringify(eventData));
   }, [eventData]);
 
   useEffect(() => {
