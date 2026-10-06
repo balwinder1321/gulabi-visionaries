@@ -180,6 +180,22 @@ export const Footer = () => {
             </button>
           </div>
         </div>
+
+        {/* Developer Credit Line */}
+        <div className="mt-6 pt-4 border-t border-pink-300/40 text-center">
+          <p className="text-[11px] text-pink-900/80 font-medium tracking-wide">
+            Website Designed & Developed by <span className="font-bold text-pink-950">Sardar Balwinder Singh</span> • Want to create a website like this?{' '}
+            <a
+              href="https://wa.me/916303248510?text=Hello%20Sardar%20Balwinder%20Singh%2C%20I%20saw%20the%20Gulabi%20Visionaries%20website%20and%20I%20am%20interested%20in%20creating%20a%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-700 hover:text-pink-950 font-bold underline transition inline-flex items-center gap-1"
+            >
+              <MessageCircle className="w-3 h-3 text-emerald-600 inline" />
+              <span>Message +91 63032 48510 on WhatsApp</span>
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
