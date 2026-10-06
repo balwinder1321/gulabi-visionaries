@@ -129,9 +129,14 @@ export const Footer = () => {
                 <Phone className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
                 <div>
                   <span className="text-xs text-gray-600 font-medium block">Phone & WhatsApp:</span>
-                  <a href={`tel:${organisation.contactPhone || '+917742459585'}`} className="text-pink-950 hover:text-pink-700 font-semibold">
-                    {organisation.contactPhone || '+91 77424 59585'}
-                  </a>
+                  <div className="space-y-0.5 pt-0.5">
+                    <a href="tel:+917742459585" className="text-pink-950 hover:text-pink-700 font-semibold block">
+                      +91 77424 59585 (Prachi)
+                    </a>
+                    <a href="tel:+918209574757" className="text-pink-950 hover:text-pink-700 font-semibold block">
+                      +91 82095 74757 (Pratibha)
+                    </a>
+                  </div>
                 </div>
               </div>
 

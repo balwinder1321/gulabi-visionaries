@@ -42,7 +42,7 @@ export const Logo = ({ size = 'md', showTagline = false }) => {
       </div>
 
       <div className="flex flex-col">
-        <span className={`font-serif font-bold tracking-tight text-white group-hover:text-pink-300 transition-colors ${textSizes[size]}`}>
+        <span className={`font-serif font-bold tracking-tight text-pink-950 group-hover:text-pink-600 transition-colors ${textSizes[size]}`}>
           {organisation.name || 'Gulabi Visionaries'}
         </span>
         {showTagline && (
