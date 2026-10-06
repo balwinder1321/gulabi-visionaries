@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { InvitationPass } from '../components/InvitationPass';
 import { GoogleMapEmbed } from '../components/GoogleMapEmbed';
-import { Sparkles, MapPin, Clock, Calendar, CheckCircle2, MessageCircle, X, User, Phone, Mail, Building, Navigation, ExternalLink, Briefcase } from 'lucide-react';
+import { Sparkles, MapPin, Clock, Calendar, CheckCircle2, MessageCircle, X, User, Phone, Mail, Building, Navigation, ExternalLink, Briefcase, UserPlus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 
@@ -256,6 +257,31 @@ Looking forward to attending!`;
               <p className="text-[10px] text-gray-500 font-normal line-clamp-1">{m.category}</p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* SECTION 5: JOIN US CTA BANNER */}
+      <section className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 text-white text-center shadow-xl space-y-6 relative overflow-hidden">
+        <div className="max-w-2xl mx-auto space-y-3 relative z-10">
+          <span className="px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/20 text-white backdrop-blur-sm border border-white/30 inline-block">
+            JOIN GULABI VISIONARIES
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-white">
+            Are You a Woman Entrepreneur?
+          </h2>
+          <p className="text-sm text-pink-100 font-medium leading-relaxed">
+            Become a part of Rajasthan's leading women-led business network. Elevate your brand, expand your referral network, and grow your enterprise with us.
+          </p>
+        </div>
+
+        <div className="pt-2 relative z-10">
+          <Link
+            to="/join"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-sm font-bold uppercase tracking-wider bg-white text-pink-900 hover:bg-pink-50 shadow-2xl transition hover:scale-105"
+          >
+            <UserPlus className="w-5 h-5 text-pink-600" />
+            <span>Join Us Now</span>
+          </Link>
         </div>
       </section>
 

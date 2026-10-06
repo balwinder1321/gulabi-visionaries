@@ -576,6 +576,31 @@ export const AdminDashboardPage = () => {
               </div>
             </div>
 
+            {/* Members Directory Page Visibility Toggle */}
+            <div className="p-5 rounded-2xl bg-pink-50/80 border-2 border-pink-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="space-y-1 text-left">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-extrabold text-pink-950">Members Directory Page Visibility</span>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${orgForm.showMembersDirectory ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-gray-200 text-gray-700'}`}>
+                    {orgForm.showMembersDirectory ? 'ENABLED' : 'DISABLED'}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-600 font-normal">
+                  When disabled, the Members Directory page and navbar tab are hidden. You can enable it anytime from this switch.
+                </p>
+              </div>
+
+              <label className="relative inline-flex items-center cursor-pointer shrink-0">
+                <input
+                  type="checkbox"
+                  checked={!!orgForm.showMembersDirectory}
+                  onChange={(e) => setOrgForm({ ...orgForm, showMembersDirectory: e.target.checked })}
+                  className="sr-only peer"
+                />
+                <div className="w-12 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-pink-600"></div>
+              </label>
+            </div>
+
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-pink-950 mb-1.5">
                 Logo Image URL / Path

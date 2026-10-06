@@ -10,6 +10,7 @@ export const initialOrganisation = {
   instagramUrl: "https://instagram.com/gulabivisionaries",
   youtubeUrl: "https://youtube.com/@gulabivisionaries",
   whatsappNumber: "917742459585",
+  showMembersDirectory: false,
   stats: {
     membersCount: "300+",
     referralsPassed: "1,200+",

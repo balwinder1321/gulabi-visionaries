@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# PDFs and Scratch extraction files
+*.pdf
+extracted_assets/
+rendered_pages/
+public_assets/
+*.py
+extracted_data.json

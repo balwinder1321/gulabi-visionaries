@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -42,6 +42,8 @@ function NotificationToast() {
 }
 
 export function AppContent() {
+  const { organisation } = useApp();
+
   return (
     <div className="min-h-screen flex flex-col justify-between bg-[#f7a6c8] text-gray-900 selection:bg-pink-500 selection:text-white">
       <ScrollToTop />
@@ -53,7 +55,10 @@ export function AppContent() {
           <Route path="/invitation" element={<InvitationPage />} />
           <Route path="/about" element={<LandingPage />} />
           <Route path="/home" element={<LandingPage />} />
-          <Route path="/members" element={<MembersPage />} />
+          <Route
+            path="/members"
+            element={organisation?.showMembersDirectory ? <MembersPage /> : <Navigate to="/join" replace />}
+          />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/admin" element={<AdminLoginPage />} />
           <Route path="/admin/dashboard" element={<AdminDashboardPage />} />

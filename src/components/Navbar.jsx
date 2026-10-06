@@ -22,12 +22,14 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const allNavItems = [
     { label: 'Event Invitation', path: '/', icon: Calendar, highlight: true },
-    { label: 'Members Directory', path: '/members', icon: Users },
+    { label: 'Members Directory', path: '/members', icon: Users, requiresDirectory: true },
     { label: 'Network Overview', path: '/about', icon: Sparkles },
     { label: 'Join Us', path: '/join', icon: UserPlus },
   ];
+
+  const navItems = allNavItems.filter(item => !item.requiresDirectory || organisation?.showMembersDirectory);
 
   const isActive = (path) => {
     if (path === '/' && (location.pathname === '/' || location.pathname === '/invitation')) return true;
