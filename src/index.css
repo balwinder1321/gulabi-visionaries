@@ -1,0 +1,73 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    background-color: #f7a6c8;
+    color: #1f2937;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Glassmorphism & Light Pink Glow Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(236, 72, 153, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.12);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(236, 72, 153, 0.45);
+  box-shadow: 0 15px 35px -10px rgba(236, 72, 153, 0.2);
+  transform: translateY(-3px);
+}
+
+.pink-gradient-text {
+  background: linear-gradient(135deg, #831843 0%, #db2777 50%, #be185d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pink-gradient-btn {
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.35);
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.pink-gradient-btn:hover {
+  background: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
+  box-shadow: 0 6px 25px rgba(236, 72, 153, 0.5);
+  transform: translateY(-2px);
+}
+
+.pink-glow {
+  box-shadow: 0 0 40px rgba(236, 72, 153, 0.18);
+}
+
+.pink-border-glow {
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.3), inset 0 0 15px rgba(236, 72, 153, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fff0f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #f472b6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ec4899;
+}

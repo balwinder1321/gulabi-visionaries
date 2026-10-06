@@ -1,0 +1,306 @@
+[
+  {
+    "id": "1",
+    "name": "Aarti Maheshwari",
+    "company": "Choc&mate",
+    "designation": "Homemade Chocolates | Choc&mate",
+    "category": "Homemade Chocolates",
+    "email": "aarti.boob1@gmail.com",
+    "phone": "9828070470",
+    "group": "Diary Emerald",
+    "photo": "/members/member_1_aarti_maheshwari.jpeg",
+    "bio": "Experienced entrepreneur in Homemade Chocolates. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919828070470",
+      "email": "mailto:aarti.boob1@gmail.com"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Anjana Badera",
+    "company": "Vastra Collection",
+    "designation": "Lingerie Reseller | Vastra Collection",
+    "category": "Lingerie Reseller",
+    "email": "anjanabadera@gmail.com",
+    "phone": "8890171743",
+    "group": "Diary Emerald",
+    "photo": "/members/member_2_anjana_badera.jpeg",
+    "bio": "Experienced entrepreneur in Lingerie Reseller. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/918890171743",
+      "email": "mailto:anjanabadera@gmail.com"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Arkaja Sethi",
+    "company": "Art by Arkaja",
+    "designation": "Resin Artist | Art by Arkaja",
+    "category": "Resin Artist",
+    "email": "arkajalife@gmail.com",
+    "phone": "9653606783",
+    "group": "Diary Emerald",
+    "photo": "/members/member_3_arkaja_sethi.jpeg",
+    "bio": "Experienced entrepreneur in Resin Artist. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919653606783",
+      "email": "mailto:arkajalife@gmail.com"
+    }
+  },
+  {
+    "id": "4",
+    "name": "Asha Choudhary",
+    "company": "Aadishakti Home Decor",
+    "designation": "Lifestyle Home Furnishing Reseller | Aadishakti Home Decor",
+    "category": "Lifestyle Home Furnishing Reseller",
+    "email": "ashachoudhary161@gmail.com",
+    "phone": "9351405704",
+    "group": "Diary Emerald",
+    "photo": "/members/member_4_asha_choudhary.png",
+    "bio": "Experienced entrepreneur in Lifestyle Home Furnishing Reseller. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919351405704",
+      "email": "mailto:ashachoudhary161@gmail.com"
+    }
+  },
+  {
+    "id": "5",
+    "name": "Deepika Lakhotia",
+    "company": "Prisha house of hampers",
+    "designation": "Gift packing and Trousseau | Prisha house of hampers",
+    "category": "Gift packing and Trousseau",
+    "email": "drathi210@gmail.com",
+    "phone": "9716171079",
+    "group": "Diary Emerald",
+    "photo": "/members/member_5_deepika_lakhotia.jpeg",
+    "bio": "Experienced entrepreneur in Gift packing and Trousseau. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919716171079",
+      "email": "mailto:drathi210@gmail.com"
+    }
+  },
+  {
+    "id": "6",
+    "name": "Devanshi Brij",
+    "company": "Pure Prong",
+    "designation": "Silver Jewellery Manufacturer | Pure Prong",
+    "category": "Silver Jewellery Manufacturer",
+    "email": "devanshi.brij@gmail.com",
+    "phone": "9023984389",
+    "group": "Diary Emerald",
+    "photo": "/members/member_6_devanshi_brij.jpeg",
+    "bio": "Experienced entrepreneur in Silver Jewellery Manufacturer. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919023984389",
+      "email": "mailto:devanshi.brij@gmail.com"
+    }
+  },
+  {
+    "id": "7",
+    "name": "Deepti Singhvi",
+    "company": "Home Delicacies by Deepti",
+    "designation": "Home cooked Food | Home Delicacies by Deepti",
+    "category": "Home cooked Food",
+    "email": "deeptisinghvi84@gmail.com",
+    "phone": "9549111117",
+    "group": "Diary Emerald",
+    "photo": "/members/member_7_deepti_singhvi.jpeg",
+    "bio": "Experienced entrepreneur in Home cooked Food. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919549111117",
+      "email": "mailto:deeptisinghvi84@gmail.com"
+    }
+  },
+  {
+    "id": "8",
+    "name": "Nirmala Laddha",
+    "company": "Masi ke Masale",
+    "designation": "Home made Masala Maker | Masi ke Masale",
+    "category": "Home made Masala Maker",
+    "email": "nirmalabharadia12@gmail.com",
+    "phone": "7737706551",
+    "group": "Diary Emerald",
+    "photo": "/members/member_8_nirmala_laddha.png",
+    "bio": "Experienced entrepreneur in Home made Masala Maker. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/917737706551",
+      "email": "mailto:nirmalabharadia12@gmail.com"
+    }
+  },
+  {
+    "id": "9",
+    "name": "Shagun Dalvi",
+    "company": "Natural Flower Honey",
+    "designation": "Organic Honey | Natural Flower Honey",
+    "category": "Organic Honey",
+    "email": "shagundalvi10@gmail.com",
+    "phone": "9829044837",
+    "group": "Diary Emerald",
+    "photo": "/members/member_9_shagun_dalvi.jpeg",
+    "bio": "Experienced entrepreneur in Organic Honey. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919829044837",
+      "email": "mailto:shagundalvi10@gmail.com"
+    }
+  },
+  {
+    "id": "10",
+    "name": "Shivani Gupta",
+    "company": "Stocknfund",
+    "designation": "Financial Advisor | Stocknfund",
+    "category": "Financial Advisor",
+    "email": "shivani.gupta2000@gmail.com",
+    "phone": "9024192111",
+    "group": "Diary Emerald",
+    "photo": "/members/member_10_shivani_gupta.jpeg",
+    "bio": "Experienced entrepreneur in Financial Advisor. Active member of Gulabi Visionaries (Diary Emerald).",
+    "social": {
+      "whatsapp": "https://wa.me/919024192111",
+      "email": "mailto:shivani.gupta2000@gmail.com"
+    }
+  },
+  {
+    "id": "11",
+    "name": "Namita Sharma",
+    "company": "Saanvikaa",
+    "designation": "Cotton coord sets and Suits | Saanvikaa",
+    "category": "Cotton coord sets and Suits",
+    "email": "saanvikaa.bu@gmail.com",
+    "phone": "9587736000",
+    "group": "Diary Pearl",
+    "photo": "/members/member_11_namita_sharma.jpeg",
+    "bio": "Experienced entrepreneur in Cotton coord sets and Suits. Active member of Gulabi Visionaries (Diary Pearl).",
+    "social": {
+      "whatsapp": "https://wa.me/919587736000",
+      "email": "mailto:saanvikaa.bu@gmail.com"
+    }
+  },
+  {
+    "id": "12",
+    "name": "Nikkita Agarwal",
+    "company": "Gopala Poshak Bhandar",
+    "designation": "Pooja Items | Gopala Poshak Bhandar",
+    "category": "Pooja Items",
+    "email": "nikka.as05@gmail.com",
+    "phone": "7357000456",
+    "group": "Diary Pearl",
+    "photo": "/members/member_12_nikkita_agarwal.jpeg",
+    "bio": "Experienced entrepreneur in Pooja Items. Active member of Gulabi Visionaries (Diary Pearl).",
+    "social": {
+      "whatsapp": "https://wa.me/917357000456",
+      "email": "mailto:nikka.as05@gmail.com"
+    }
+  },
+  {
+    "id": "13",
+    "name": "Soumyashree Jena",
+    "company": "Crochet Detox",
+    "designation": "Cotton coord sets and Suits | Crochet Detox",
+    "category": "Cotton coord sets and Suits",
+    "email": "soumyashreej@gmail.com",
+    "phone": "9766999258",
+    "group": "Diary Pearl",
+    "photo": "/members/member_13_soumyashree_jena.jpeg",
+    "bio": "Experienced entrepreneur in Cotton coord sets and Suits. Active member of Gulabi Visionaries (Diary Pearl).",
+    "social": {
+      "whatsapp": "https://wa.me/919766999258",
+      "email": "mailto:soumyashreej@gmail.com"
+    }
+  },
+  {
+    "id": "14",
+    "name": "Shilpa Agarwal",
+    "company": "Tara Creations",
+    "designation": "Bed Linens | Tara Creations",
+    "category": "Bed Linens",
+    "email": "shilpaagarwal2010@gmail.com",
+    "phone": "9829292036",
+    "group": "Diary Pearl",
+    "photo": "/members/member_14_shilpa_agarwal.jpeg",
+    "bio": "Experienced entrepreneur in Bed Linens. Active member of Gulabi Visionaries (Diary Pearl).",
+    "social": {
+      "whatsapp": "https://wa.me/919829292036",
+      "email": "mailto:shilpaagarwal2010@gmail.com"
+    }
+  },
+  {
+    "id": "15",
+    "name": "Surabhi Saxena",
+    "company": "Choco Retreat By Surabhi",
+    "designation": "Baker | Choco Retreat By Surabhi",
+    "category": "Baker",
+    "email": "rshk71@gmail.com",
+    "phone": "9001952444",
+    "group": "Diary Pearl",
+    "photo": "/members/member_15_surabhi_saxena.jpeg",
+    "bio": "Experienced entrepreneur in Baker. Active member of Gulabi Visionaries (Diary Pearl).",
+    "social": {
+      "whatsapp": "https://wa.me/919001952444",
+      "email": "mailto:rshk71@gmail.com"
+    }
+  },
+  {
+    "id": "16",
+    "name": "Uma Agarwal",
+    "company": "Choco Retreat By Surabhi",
+    "designation": "Baker | Choco Retreat By Surabhi",
+    "category": "Baker",
+    "email": "umagrwal@gmail.com",
+    "phone": "9929773573",
+    "group": "Diary Pearl",
+    "photo": "/members/member_16_uma_agarwal.jpeg",
+    "bio": "Experienced entrepreneur in Baker. Active member of Gulabi Visionaries (Diary Pearl).",
+    "social": {
+      "whatsapp": "https://wa.me/919929773573",
+      "email": "mailto:umagrwal@gmail.com"
+    }
+  },
+  {
+    "id": "17",
+    "name": "Pratibha Chaturvedi",
+    "company": "Devik Organics",
+    "designation": "Skincare products and Candles | Devik Organics",
+    "category": "Skincare products and Candles",
+    "email": "pratibhaojha26@gmail.com",
+    "phone": "8209574757",
+    "group": "Founders",
+    "photo": "/members/member_17_pratibha_chaturvedi.jpeg",
+    "bio": "Experienced entrepreneur in Skincare products and Candles. Active member of Gulabi Visionaries (Founders).",
+    "social": {
+      "whatsapp": "https://wa.me/918209574757",
+      "email": "mailto:pratibhaojha26@gmail.com"
+    }
+  },
+  {
+    "id": "18",
+    "name": "Deepika Saboo",
+    "company": "Deepika Saboo’s Nutrition Center",
+    "designation": "Nutritionist | Deepika Saboo’s Nutrition Center",
+    "category": "Nutritionist",
+    "email": "dips_0203@yahoo.co.in",
+    "phone": "9001299931",
+    "group": "Founders",
+    "photo": "/members/member_18_deepika_saboo.jpeg",
+    "bio": "Experienced entrepreneur in Nutritionist. Active member of Gulabi Visionaries (Founders).",
+    "social": {
+      "whatsapp": "https://wa.me/919001299931",
+      "email": "mailto:dips_0203@yahoo.co.in"
+    }
+  },
+  {
+    "id": "19",
+    "name": "Prachi Agrawal",
+    "company": "Gulabi Microgreens and Learning Cubs",
+    "designation": "Microgreens and Activity Center | Gulabi Microgreens and Learning Cubs",
+    "category": "Microgreens and Activity Center",
+    "email": "prachimansinghka@gmail.com",
+    "phone": "7742459585",
+    "group": "Founders",
+    "photo": "/members/member_19_prachi_agrawal.jpeg",
+    "bio": "Experienced entrepreneur in Microgreens and Activity Center. Active member of Gulabi Visionaries (Founders).",
+    "social": {
+      "whatsapp": "https://wa.me/917742459585",
+      "email": "mailto:prachimansinghka@gmail.com"
+    }
+  }
+]
