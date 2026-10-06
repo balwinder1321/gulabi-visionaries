@@ -159,19 +159,19 @@ export const AdminDashboardPage = () => {
     <div className="min-h-screen pt-24 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       {/* Top Header */}
-      <div className="p-6 rounded-3xl bg-white border border-pink-200 shadow-md flex flex-col md:flex-row items-center justify-between gap-4 text-left text-slate-900">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-pink-100 border border-pink-300 text-pink-600 flex items-center justify-center shrink-0 shadow-sm">
-            <ShieldCheck className="w-7 h-7" />
+      <div className="p-4 sm:p-6 rounded-3xl bg-white border border-pink-200 shadow-md flex flex-col md:flex-row items-start sm:items-center justify-between gap-4 text-left text-slate-900">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-pink-100 border border-pink-300 text-pink-600 flex items-center justify-center shrink-0 shadow-sm">
+            <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">CMS Control Panel</span>
-            <h1 className="text-2xl font-serif font-bold text-pink-950">Admin Dashboard</h1>
-            <p className="text-xs text-gray-600">Logged in as: <span className="text-pink-950 font-bold">{adminUser?.name || adminUser?.email}</span></p>
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-pink-700 block">CMS Control Panel</span>
+            <h1 className="text-xl sm:text-2xl font-serif font-bold text-pink-950">Admin Dashboard</h1>
+            <p className="text-[11px] sm:text-xs text-gray-600">Logged in: <span className="text-pink-950 font-bold">{adminUser?.name || adminUser?.email}</span></p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3 w-full md:w-auto justify-end">
+        <div className="flex flex-wrap items-center gap-2 w-full md:w-auto justify-start sm:justify-end">
           <button
             onClick={() => {
               if (window.confirm('Restore all organisation, event, and member data to original PDF defaults?')) {
@@ -180,21 +180,21 @@ export const AdminDashboardPage = () => {
                 setOrgForm(organisation);
               }
             }}
-            className="px-4 py-2 rounded-full text-xs font-bold bg-pink-50 border border-pink-200 text-pink-900 hover:bg-pink-100 transition flex items-center gap-1.5 shadow-sm"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold bg-pink-50 border border-pink-200 text-pink-900 hover:bg-pink-100 transition flex items-center gap-1.5 shadow-sm"
             title="Reset to Original PDF Data"
           >
             <RotateCcw className="w-3.5 h-3.5 text-pink-600" />
-            <span>Reset PDF Defaults</span>
+            <span>Reset Defaults</span>
           </button>
 
           <a
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full text-xs font-bold bg-pink-50 border border-pink-200 text-pink-900 hover:bg-pink-100 transition flex items-center gap-1.5 shadow-sm"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold bg-pink-50 border border-pink-200 text-pink-900 hover:bg-pink-100 transition flex items-center gap-1.5 shadow-sm"
           >
             <ExternalLink className="w-3.5 h-3.5 text-pink-600" />
-            <span>View Live Website</span>
+            <span>View Live Site</span>
           </a>
 
           <button
@@ -202,7 +202,7 @@ export const AdminDashboardPage = () => {
               logoutAdmin();
               navigate('/admin');
             }}
-            className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-50 border border-rose-300 text-rose-700 hover:bg-rose-600 hover:text-white transition flex items-center gap-1.5 shadow-sm"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-rose-50 border border-rose-300 text-rose-700 hover:bg-rose-600 hover:text-white transition flex items-center gap-1.5 shadow-sm"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Logout</span>
@@ -211,53 +211,53 @@ export const AdminDashboardPage = () => {
       </div>
 
       {/* Tabs Navigation */}
-      <div className="flex items-center gap-2 border-b border-pink-200 pb-2 overflow-x-auto">
+      <div className="flex items-center gap-2 border-b border-pink-200 pb-2 overflow-x-auto no-scrollbar scroll-smooth">
         <button
           onClick={() => setActiveTab('event')}
-          className={`px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
+          className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl text-[11px] sm:text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
             activeTab === 'event'
               ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-md'
               : 'bg-white text-pink-900 border border-pink-200 hover:bg-pink-50 shadow-sm'
           }`}
         >
-          <Calendar className="w-4 h-4" />
-          <span>Event Management</span>
+          <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <span>Event</span>
         </button>
 
         <button
           onClick={() => setActiveTab('members')}
-          className={`px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
+          className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl text-[11px] sm:text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
             activeTab === 'members'
               ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-md'
               : 'bg-white text-pink-900 border border-pink-200 hover:bg-pink-50 shadow-sm'
           }`}
         >
-          <Users className="w-4 h-4" />
-          <span>Member Management ({members.length})</span>
+          <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <span>Members ({members.length})</span>
         </button>
 
         <button
           onClick={() => setActiveTab('organisation')}
-          className={`px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
+          className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl text-[11px] sm:text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
             activeTab === 'organisation'
               ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-md'
               : 'bg-white text-pink-900 border border-pink-200 hover:bg-pink-50 shadow-sm'
           }`}
         >
-          <Building className="w-4 h-4" />
-          <span>Organisation Management</span>
+          <Building className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <span>Organisation</span>
         </button>
 
         <button
           onClick={() => setActiveTab('ads')}
-          className={`px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
+          className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl text-[11px] sm:text-xs font-bold uppercase tracking-wider transition flex items-center gap-2 shrink-0 ${
             activeTab === 'ads'
               ? 'bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-md'
               : 'bg-white text-pink-900 border border-pink-200 hover:bg-pink-50 shadow-sm'
           }`}
         >
-          <Play className="w-4 h-4" />
-          <span>Ad & Banner Management</span>
+          <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <span>Ad & Banner</span>
         </button>
       </div>
 
