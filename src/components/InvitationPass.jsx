@@ -33,13 +33,16 @@ export const InvitationPass = ({ onRSVPClick }) => {
     setTimeout(() => setCopied(false), 3000);
   };
 
+  const passTitle = organisation?.invitationBranding || 'Empowering Women';
+  const ribbonLabel = `${passTitle.toUpperCase()} • ${passTitle.toUpperCase()} •`;
+
   return (
     <div className="w-full max-w-lg mx-auto relative flex flex-col items-center pt-8 pb-4">
       
       {/* Lanyard Ribbon Hanging from Top */}
       <div className="w-8 h-20 sm:h-28 bg-gradient-to-b from-pink-700 via-rose-600 to-pink-700 flex flex-col items-center justify-center relative shadow-md rounded-t-sm z-20 overflow-hidden">
         <div className="text-[9px] font-black uppercase text-white/90 tracking-widest rotate-90 whitespace-nowrap select-none">
-          GULABI VISIONARIES • GULABI VISIONARIES •
+          {ribbonLabel}
         </div>
       </div>
 
@@ -66,7 +69,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <div className="w-16 h-16 rounded-full bg-white p-1 shadow-md mb-3 flex items-center justify-center overflow-hidden border-2 border-pink-200">
                   <img src={organisation.logo || "/assets/gulabi_logo.png"} alt="Logo" className="w-full h-full object-cover rounded-full" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-serif font-black uppercase tracking-wider">{organisation.name}</h3>
+                <h3 className="text-xl sm:text-2xl font-serif font-black uppercase tracking-wider">{passTitle}</h3>
               </div>
 
               {/* Body Content */}
@@ -115,7 +118,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
                   <img src={organisation.logo || "/assets/gulabi_logo.png"} alt="Logo" className="w-full h-full object-cover rounded-full" />
                 </div>
                 <h2 className="text-3xl font-serif font-black uppercase tracking-tight">Welcome</h2>
-                <span className="text-xs font-bold uppercase tracking-widest text-pink-100">{organisation.name}</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-pink-100">{passTitle}</span>
               </div>
 
               {/* Event Image Banner if present */}

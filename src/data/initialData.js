@@ -11,6 +11,7 @@ export const initialOrganisation = {
   youtubeUrl: "https://youtube.com/@gulabivisionaries",
   whatsappNumber: "917742459585",
   showMembersDirectory: false,
+  invitationBranding: "Empowering Women",
   stats: {
     membersCount: "300+",
     referralsPassed: "1,200+",

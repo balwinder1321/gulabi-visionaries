@@ -670,6 +670,23 @@ export const AdminDashboardPage = () => {
               </label>
             </div>
 
+            {/* Invitation Pass Header Branding Option */}
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-pink-950 mb-1.5">
+                Invitation Pass Header Branding
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Empowering Women or Gulabi Visionaries"
+                value={orgForm.invitationBranding ?? 'Empowering Women'}
+                onChange={(e) => setOrgForm({ ...orgForm, invitationBranding: e.target.value })}
+                className="w-full px-4 py-3 rounded-2xl bg-pink-50/70 border border-pink-200 text-gray-900 text-sm font-medium outline-none focus:border-pink-500 focus:bg-white transition"
+              />
+              <p className="text-[11px] text-gray-500 font-normal mt-1">
+                Controls the header badge title on the Invitation Pass page. Change to "Empowering Women" or "Gulabi Visionaries" anytime.
+              </p>
+            </div>
+
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-pink-950 mb-1.5">
                 Logo Image URL / Path
