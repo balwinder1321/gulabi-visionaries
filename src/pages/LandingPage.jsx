@@ -20,8 +20,50 @@ export const LandingPage = () => {
     }
   }, [adData]);
 
-  const founders = members.filter(m => m.group === 'Founders');
-  const featuredMembers = members.slice(0, 6);
+  const prachi = members.find(m => m.name.toLowerCase().includes('prachi')) || {
+    id: '19',
+    name: 'Prachi Agrawal',
+    company: 'Gulabi Microgreens & Learning Cubs',
+    designation: 'Founder & Executive Administrator',
+    category: 'Microgreens & Activity Center',
+    group: 'FOUNDER',
+    photo: '/members/member_19_prachi_agrawal.jpeg',
+    bio: 'Founder & Core Administrator of Gulabi Visionaries.'
+  };
+
+  const pratibha = members.find(m => m.name.toLowerCase().includes('pratibha')) || {
+    id: '17',
+    name: 'Pratibha Chaturvedi',
+    company: 'Devik Organics',
+    designation: 'Co-Founder & Skincare Producer',
+    category: 'Skincare products & Candles',
+    group: 'CO-FOUNDER',
+    photo: '/members/member_17_pratibha_chaturvedi.jpeg',
+    bio: 'Co-Founder of Gulabi Visionaries & Devik Organics.'
+  };
+
+  const deepika = members.find(m => m.name.toLowerCase().includes('deepika saboo')) || {
+    id: '18',
+    name: 'Deepika Saboo',
+    company: 'Deepika Saboo’s Nutrition Center',
+    designation: 'Co-Founder & Clinical Nutritionist',
+    category: 'Nutritionist',
+    group: 'CO-FOUNDER',
+    photo: '/members/member_18_deepika_saboo.jpeg',
+    bio: 'Co-Founder of Gulabi Visionaries & Certified Clinical Nutritionist.'
+  };
+
+  const networkFounders = [
+    { ...prachi, group: 'FOUNDER' },
+    { ...pratibha, group: 'CO-FOUNDER' },
+    { ...deepika, group: 'CO-FOUNDER' }
+  ];
+
+  const featuredMembers = members.filter(
+    m => !m.name.toLowerCase().includes('prachi') &&
+         !m.name.toLowerCase().includes('pratibha') &&
+         !m.name.toLowerCase().includes('deepika saboo')
+  ).slice(0, 6);
 
   const keyBenefits = [
     { title: "Networking Opportunities", desc: "Connect with like-minded women entrepreneurs and expand your professional network through bi-weekly meets.", icon: Users },
@@ -90,13 +132,15 @@ export const LandingPage = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
             </Link>
 
-            <Link
-              to="/members"
-              className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider bg-pink-50 border border-pink-200 hover:bg-pink-100 text-pink-900 transition duration-300 flex items-center gap-2 shadow-sm"
-            >
-              <Users className="w-4 h-4 text-pink-600" />
-              <span>Explore Members Directory</span>
-            </Link>
+            {organisation?.showMembersDirectory && (
+              <Link
+                to="/members"
+                className="px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider bg-pink-50 border border-pink-200 hover:bg-pink-100 text-pink-900 transition duration-300 flex items-center gap-2 shadow-sm"
+              >
+                <Users className="w-4 h-4 text-pink-600" />
+                <span>Explore Members Directory</span>
+              </Link>
+            )}
 
             {adData && adData.enabled && (
               <button
@@ -267,7 +311,7 @@ export const LandingPage = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {founders.map((member) => (
+          {networkFounders.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}
         </div>
@@ -311,30 +355,32 @@ export const LandingPage = () => {
       </section>
 
 
-      {/* Featured Members Showcase */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-pink-200 pb-4 text-left">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Directory Preview</span>
-            <h2 className="text-3xl font-serif font-bold text-pink-950">
-              Featured Entrepreneur Members
-            </h2>
+      {/* Featured Members Showcase (Only shown when Members Directory is enabled) */}
+      {organisation?.showMembersDirectory && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-pink-200 pb-4 text-left">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Directory Preview</span>
+              <h2 className="text-3xl font-serif font-bold text-pink-950">
+                Featured Entrepreneur Members
+              </h2>
+            </div>
+            <Link
+              to="/members"
+              className="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-pink-50 border border-pink-200 hover:bg-pink-600 text-pink-900 hover:text-white transition flex items-center gap-2 shadow-sm"
+            >
+              <span>View All Members</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          <Link
-            to="/members"
-            className="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-pink-50 border border-pink-200 hover:bg-pink-600 text-pink-900 hover:text-white transition flex items-center gap-2 shadow-sm"
-          >
-            <span>View All Members</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredMembers.map((member) => (
-            <MemberCard key={member.id} member={member} />
-          ))}
-        </div>
-      </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredMembers.map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+          </div>
+        </section>
+      )}
 
 
       {/* Bottom CTA Banner */}
