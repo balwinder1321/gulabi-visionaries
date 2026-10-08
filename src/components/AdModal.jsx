@@ -33,11 +33,17 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
   if (!isOpen || !adData || !adData.enabled) return null;
 
   const handleAdClick = () => {
-    if (!adData.redirectUrl) return;
-    if (adData.redirectUrl.startsWith('http://') || adData.redirectUrl.startsWith('https://')) {
-      window.open(adData.redirectUrl, '_blank', 'noopener,noreferrer');
+    if (!adData?.redirectUrl) return;
+    let url = adData.redirectUrl.trim();
+    if (!url) return;
+
+    if (url.startsWith('/')) {
+      navigate(url);
     } else {
-      navigate(adData.redirectUrl);
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = `https://${url}`;
+      }
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
     onClose();
   };

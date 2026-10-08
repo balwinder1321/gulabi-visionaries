@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
 import { MemberCard } from '../components/MemberCard';
-import { Search, Filter, Users, Sparkles, UserPlus } from 'lucide-react';
+import { Search, Filter, Users, Sparkles, UserPlus, MessageCircle, Megaphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const MembersPage = () => {
@@ -151,21 +151,50 @@ export const MembersPage = () => {
         </div>
       )}
 
-      {/* CTA Box */}
-      <div className="p-8 rounded-3xl bg-gradient-to-r from-pink-50 via-white to-pink-50 border border-pink-200 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
-        <div className="text-left">
-          <h3 className="text-xl font-serif font-bold text-pink-950">Are you a Woman Entrepreneur?</h3>
-          <p className="text-xs text-gray-700 font-normal mt-1">Get listed on Gulabi Visionaries directory and boost your business referrals.</p>
+      {/* Dual CTA Section: Join Network & Book Ad Space */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        {/* Network Join CTA */}
+        <div className="p-8 rounded-3xl bg-gradient-to-r from-pink-50 via-white to-pink-50 border border-pink-200 text-left flex flex-col justify-between space-y-4 shadow-sm">
+          <div>
+            <h3 className="text-xl font-serif font-bold text-pink-950">Are you a Woman Entrepreneur?</h3>
+            <p className="text-xs text-gray-700 font-normal mt-1">Get listed on Gulabi Visionaries directory and boost your business referrals across Rajasthan.</p>
+          </div>
+          <Link
+            to="/join"
+            className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-md self-start flex items-center gap-2"
+          >
+            <UserPlus className="w-4 h-4" />
+            <span>Apply to Join Network</span>
+          </Link>
         </div>
-        <Link
-          to="/join"
-          className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-lg shrink-0 flex items-center gap-2"
-        >
-          <UserPlus className="w-4 h-4" />
-          <span>Apply to Join Network</span>
-        </Link>
+
+        {/* Book Website Ad Space CTA */}
+        <div className="p-8 rounded-3xl bg-gradient-to-br from-pink-900 via-rose-950 to-pink-950 text-white border border-pink-700 text-left flex flex-col justify-between space-y-4 shadow-md relative overflow-hidden">
+          <div className="space-y-2 relative z-10">
+            <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-500/20 text-pink-200 border border-pink-400/30 inline-block">
+              📢 FEATURED PROMO BANNER
+            </span>
+            <h3 className="text-xl font-serif font-bold text-white">Book Ad Space on Our Website</h3>
+            <p className="text-xs text-pink-100 font-normal leading-relaxed">
+              Showcase your enterprise, product catalog, or video promo to 300+ women entrepreneurs and daily site visitors.
+            </p>
+          </div>
+          
+          <a
+            href={`https://wa.me/919001299931?text=${encodeURIComponent("Hello Gulabi Visionaries, I would like to inquire about booking Ad Space / Promo Banner on your website.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow-md self-start flex items-center gap-2 relative z-10 transition"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>Book Ad Space via WhatsApp (+91 90012 99931)</span>
+          </a>
+        </div>
+
       </div>
 
     </div>
   );
 };
+
