@@ -290,6 +290,33 @@ Looking forward to attending!`;
         </div>
       </section>
 
+      {/* SECTION 6: BOOK WEBSITE AD SPACE BANNER */}
+      <section className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-pink-900 via-rose-950 to-pink-950 text-white text-center shadow-xl space-y-6 relative overflow-hidden border-2 border-pink-700">
+        <div className="max-w-2xl mx-auto space-y-3 relative z-10">
+          <span className="px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-pink-500/20 text-pink-200 border border-pink-400/30 inline-block shadow-sm">
+            📢 FEATURED ADVERTISING & SPONSORSHIP
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-white">
+            Book Ad Space on Our Website
+          </h2>
+          <p className="text-sm text-pink-100 font-medium leading-relaxed">
+            Want to showcase your enterprise, poster banner, or video promo to 300+ women entrepreneurs and thousands of network visitors across Rajasthan?
+          </p>
+        </div>
+
+        <div className="pt-2 relative z-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={`https://wa.me/919001299931?text=${encodeURIComponent("Hello Gulabi Visionaries, I am interested in booking Ad Space / Promo Banner on your website.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl transition hover:scale-105"
+          >
+            <MessageCircle className="w-5 h-5 text-white" />
+            <span>Book Ad Space via WhatsApp (+91 90012 99931)</span>
+          </a>
+        </div>
+      </section>
+
       {/* MEMBER DETAIL MODAL DRAWER */}
       <AnimatePresence>
         {selectedMemberModal && (
