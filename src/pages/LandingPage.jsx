@@ -69,12 +69,12 @@ export const LandingPage = () => {
   ).slice(0, 6);
 
   const keyBenefits = [
-    { title: "Networking Opportunities", desc: "Connect with like-minded women entrepreneurs and expand your professional network through bi-weekly meets.", icon: Users },
-    { title: "Access to Referrals", desc: "Gain valuable business referrals and structured leads to grow your revenue exponentially.", icon: Award },
-    { title: "Social Media Support", desc: "Dedicated team providing 10 Instagram posts OR 4 Reels for members to boost brand visibility.", icon: Video },
-    { title: "Virtual Business Cards", desc: "Digital savior for instant networking whenever you meet new clients or prospects.", icon: CreditCard },
-    { title: "Podcast Feature", desc: "Covering 3 members every month on YouTube & Spotify talkshows to share your brand story.", icon: Mic },
-    { title: "WhatsApp Status Marketing", desc: "Power of cross-promotion with 300+ members sharing your flyers on their WhatsApp status.", icon: MessageCircle }
+    { title: "Networking Opportunities", desc: "Connect with like-minded women entrepreneurs and expand your professional network through events and collaboration.", icon: Users },
+    { title: "Access to Referrals", desc: "Gain valuable referral, guides to help you grow your business efficiently.", icon: Award },
+    { title: "Business and Support", desc: "Members shall be engaged to give business and support your entrepreneurial journey. We have the feature of business sharing on WhatsApp status or Insta story sharing.", icon: MessageCircle },
+    { title: "Social media team", desc: "We understand your Social media needs, hence have a team ready for you that shall work for you and help you get good visibility with the help of posts or reels or both.", icon: Video },
+    { title: "Virtual Business cards", desc: "Its a need of today and a must for every Entrepreneur. Its your savior whenever you meet a new person.", icon: CreditCard },
+    { title: "Podcast", desc: "Members shall be engaged in a talk show about their business and support your entrepreneurial journey. This feature is completely free for members with a minimum food charges applicable.", icon: Mic }
   ];
 
   const meetingRules = [

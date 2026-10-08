@@ -95,26 +95,30 @@ export const Footer = () => {
             <h3 className="text-lg font-serif font-bold text-pink-950 mb-4 border-b border-pink-300 pb-2 inline-block">
               Member Benefits
             </h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-xs text-gray-700 font-medium">
               <li className="flex items-start gap-2">
                 <span className="text-pink-600 font-bold">•</span>
-                <span>Active Business Referral Ecosystem (300+ Members)</span>
+                <span>Networking Opportunities (Events & Collaboration)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-pink-600 font-bold">•</span>
-                <span>WhatsApp & Instagram Status Marketing</span>
+                <span>Access to Referrals & Growth Guides</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-pink-600 font-bold">•</span>
-                <span>Talkshow Podcast Features (YouTube & Spotify)</span>
+                <span>Business Sharing (WhatsApp Status & Insta Story)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-pink-600 font-bold">•</span>
-                <span>Virtual Business Cards & Media Coverage</span>
+                <span>Social Media Team Support (Posts & Reels)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-pink-600 font-bold">•</span>
-                <span>Gulabi Field Visits & Door Prizes</span>
+                <span>Virtual Business Cards for Entrepreneurs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-pink-600 font-bold">•</span>
+                <span>Podcast Talk Show Features</span>
               </li>
             </ul>
           </div>
