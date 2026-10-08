@@ -1,7 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Play, Sparkles, Volume2, ArrowRight } from 'lucide-react';
+import { X, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
+const AdMediaContent = ({ adData, isVideo }) => {
+  if (isVideo) {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center">
+        {adData.mediaUrl?.includes('youtube.com') || adData.mediaUrl?.includes('youtu.be') ? (
+          <iframe
+            src={adData.mediaUrl.replace('watch?v=', 'embed/')}
+            title="Ad Video"
+            className="w-full h-full min-h-[300px] border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <video
+            src={adData.mediaUrl}
+            controls
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-contain max-h-[420px]"
+          />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px]">
+      <img
+        src={adData.mediaUrl}
+        alt={adData.title}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = '/members/member_17_pratibha_chaturvedi.jpeg';
+        }}
+      />
+      <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors" />
+      
+      <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-pink-950 shadow-md border border-pink-200 flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition">
+        <ExternalLink className="w-3.5 h-3.5 text-pink-600" />
+        <span>Tap to Open Link</span>
+      </div>
+    </div>
+  );
+};
 
 export const AdModal = ({ adData, isOpen, onClose }) => {
   const navigate = useNavigate();
@@ -32,28 +79,20 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
 
   if (!isOpen || !adData || !adData.enabled) return null;
 
-  const handleAdClick = (e) => {
-    if (e) {
-      e.stopPropagation();
-    }
-    const rawUrl = adData?.redirectUrl ? adData.redirectUrl.trim() : "";
-    const targetUrl = (rawUrl && rawUrl !== '/members' && rawUrl !== '/join')
-      ? rawUrl
-      : "https://www.instagram.com/gulabi_visionaries?stkn=MW5yNzkxOXpmdmE1NA==";
+  const rawUrl = adData?.redirectUrl ? adData.redirectUrl.trim() : "";
+  const defaultUrl = "https://www.instagram.com/gulabi_visionaries?stkn=MW5yNzkxOXpmdmE1NA==";
+  
+  let targetUrl = rawUrl || defaultUrl;
+  if (!targetUrl.startsWith('/') && !targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+    targetUrl = `https://${targetUrl}`;
+  }
 
-    let finalUrl = targetUrl;
-    if (finalUrl.startsWith('/')) {
-      navigate(finalUrl);
-    } else {
-      if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
-        finalUrl = `https://${finalUrl}`;
-      }
-      window.open(finalUrl, '_blank', 'noopener,noreferrer');
-    }
-    onClose();
-  };
-
+  const isExternal = !targetUrl.startsWith('/');
   const isVideo = adData.mediaType === 'video' || (adData.mediaUrl && adData.mediaUrl.match(/\.(mp4|webm|ogg)(\?.*)?$/i));
+
+  const buttonText = adData.ctaText && !adData.ctaText.includes('Explore Collection')
+    ? adData.ctaText.replace(/›/g, '').trim()
+    : 'Visit Page';
 
   return (
     <AnimatePresence>
@@ -95,52 +134,25 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Media Content Container (Clickable to Redirect) */}
-          <div 
-            onClick={handleAdClick}
-            className="relative cursor-pointer group bg-pink-950 overflow-hidden flex-1 min-h-[260px] sm:min-h-[340px] flex items-center justify-center"
-          >
-            {isVideo ? (
-              <div className="relative w-full h-full flex items-center justify-center">
-                {adData.mediaUrl?.includes('youtube.com') || adData.mediaUrl?.includes('youtu.be') ? (
-                  <iframe
-                    src={adData.mediaUrl.replace('watch?v=', 'embed/')}
-                    title="Ad Video"
-                    className="w-full h-full min-h-[300px] border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                ) : (
-                  <video
-                    src={adData.mediaUrl}
-                    controls
-                    autoPlay
-                    muted
-                    loop
-                    className="w-full h-full object-contain max-h-[420px]"
-                  />
-                )}
-              </div>
-            ) : (
-              <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px]">
-                <img
-                  src={adData.mediaUrl}
-                  alt={adData.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/members/member_17_pratibha_chaturvedi.jpeg';
-                  }}
-                />
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors" />
-                
-                <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-pink-950 shadow-md border border-pink-200 flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition">
-                  <ExternalLink className="w-3.5 h-3.5 text-pink-600" />
-                  <span>Tap to Visit Website</span>
-                </div>
-              </div>
-            )}
-          </div>
+          {/* Media Content Container (Natively Clickable Link) */}
+          {isExternal ? (
+            <a
+              href={targetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="relative cursor-pointer group bg-pink-950 overflow-hidden flex-1 min-h-[260px] sm:min-h-[340px] flex items-center justify-center block"
+            >
+              <AdMediaContent adData={adData} isVideo={isVideo} />
+            </a>
+          ) : (
+            <div
+              onClick={() => { navigate(targetUrl); onClose(); }}
+              className="relative cursor-pointer group bg-pink-950 overflow-hidden flex-1 min-h-[260px] sm:min-h-[340px] flex items-center justify-center"
+            >
+              <AdMediaContent adData={adData} isVideo={isVideo} />
+            </div>
+          )}
 
           {/* Bottom Info Bar */}
           <div className="p-5 sm:p-6 bg-white border-t border-pink-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shrink-0">
@@ -150,17 +162,26 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
             </div>
 
             <div className="w-full sm:w-auto shrink-0 flex justify-end">
-              <button
-                onClick={handleAdClick}
-                className="w-full sm:w-auto px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 whitespace-nowrap"
-              >
-                <span>
-                  {adData.ctaText && !adData.ctaText.includes('Explore Collection')
-                    ? adData.ctaText.replace(/›/g, '').trim()
-                    : 'Visit Page'}
-                </span>
-                <ArrowRight className="w-4 h-4 shrink-0" />
-              </button>
+              {isExternal ? (
+                <a
+                  href={targetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={onClose}
+                  className="w-full sm:w-auto px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 whitespace-nowrap"
+                >
+                  <span>{buttonText}</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </a>
+              ) : (
+                <button
+                  onClick={() => { navigate(targetUrl); onClose(); }}
+                  className="w-full sm:w-auto px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 whitespace-nowrap"
+                >
+                  <span>{buttonText}</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </button>
+              )}
             </div>
           </div>
         </motion.div>
