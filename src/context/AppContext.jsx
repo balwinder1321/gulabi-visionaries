@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { initialOrganisation, initialEvent, initialMembers, initialAd } from '../data/initialData';
+import { supabase } from '../supabase';
 
 const AppContext = createContext();
 
@@ -25,10 +26,81 @@ export const AppProvider = ({ children }) => {
   });
 
   const [adminUser, setAdminUser] = useState(null);
-
   const [toastMessage, setToastMessage] = useState(null);
+  const [isCloudSynced, setIsCloudSynced] = useState(false);
 
-  // Sync state changes to LocalStorage
+  // Sync from Supabase on Initial Load
+  useEffect(() => {
+    const fetchCloudData = async () => {
+      try {
+        const { data, error } = await supabase.from('app_data').select('*');
+        if (!error && data && data.length > 0) {
+          data.forEach(item => {
+            if (item.id === 'organisation' && item.data) {
+              setOrganisation(item.data);
+              localStorage.setItem('gulabi_organisation', JSON.stringify(item.data));
+            }
+            if (item.id === 'event' && item.data) {
+              setEventData(item.data);
+              localStorage.setItem('gulabi_event_v2', JSON.stringify(item.data));
+            }
+            if (item.id === 'members' && item.data) {
+              setMembers(item.data);
+              localStorage.setItem('gulabi_members', JSON.stringify(item.data));
+            }
+            if (item.id === 'ad' && item.data) {
+              setAdData(item.data);
+              localStorage.setItem('gulabi_ad', JSON.stringify(item.data));
+            }
+          });
+          setIsCloudSynced(true);
+        }
+      } catch (err) {
+        console.warn('Supabase sync notice:', err);
+      }
+    };
+
+    fetchCloudData();
+
+    // Subscribe to Realtime Postgres Changes
+    const subscription = supabase
+      .channel('public:app_data')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'app_data' }, (payload) => {
+        if (payload.new && payload.new.id && payload.new.data) {
+          const { id, data } = payload.new;
+          if (id === 'organisation') setOrganisation(data);
+          if (id === 'event') setEventData(data);
+          if (id === 'members') setMembers(data);
+          if (id === 'ad') setAdData(data);
+        }
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(subscription);
+    };
+  }, []);
+
+  // Sync helper function for Supabase Cloud
+  const syncToCloud = async (key, dataObj) => {
+    try {
+      const { error } = await supabase.from('app_data').upsert({
+        id: key,
+        data: dataObj,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'id' });
+      
+      if (!error) {
+        setIsCloudSynced(true);
+      } else {
+        console.error(`Supabase cloud save error (${key}):`, error.message);
+      }
+    } catch (err) {
+      console.error(`Failed cloud save for ${key}:`, err);
+    }
+  };
+
+  // Local Storage Backups
   useEffect(() => {
     localStorage.setItem('gulabi_organisation', JSON.stringify(organisation));
   }, [organisation]);
@@ -53,18 +125,24 @@ export const AppProvider = ({ children }) => {
   };
 
   const updateOrganisation = (newOrgData) => {
-    setOrganisation(prev => ({ ...prev, ...newOrgData }));
-    showToast('Organisation details updated successfully!');
+    const updated = { ...organisation, ...newOrgData };
+    setOrganisation(updated);
+    syncToCloud('organisation', updated);
+    showToast('Organisation details updated globally!');
   };
 
   const updateEvent = (newEventData) => {
-    setEventData(prev => ({ ...prev, ...newEventData }));
-    showToast('Event invitation details updated successfully!');
+    const updated = { ...eventData, ...newEventData };
+    setEventData(updated);
+    syncToCloud('event', updated);
+    showToast('Event invitation updated globally for all users!');
   };
 
   const updateAdData = (newAdData) => {
-    setAdData(prev => ({ ...prev, ...newAdData }));
-    showToast('Ad & Promo settings updated successfully!');
+    const updated = { ...adData, ...newAdData };
+    setAdData(updated);
+    syncToCloud('ad', updated);
+    showToast('Ad & Promo settings updated globally!');
   };
 
   const addMember = (newMember) => {
@@ -81,19 +159,25 @@ export const AppProvider = ({ children }) => {
       photo: newMember.photo || '/members/member_17_pratibha_chaturvedi.jpeg',
       bio: newMember.bio || 'Member of Gulabi Visionaries network.'
     };
-    setMembers(prev => [createdMember, ...prev]);
-    showToast(`Member "${createdMember.name}" added successfully!`);
+    const updatedMembers = [createdMember, ...members];
+    setMembers(updatedMembers);
+    syncToCloud('members', updatedMembers);
+    showToast(`Member "${createdMember.name}" added globally!`);
     return createdMember;
   };
 
   const updateMember = (id, updatedFields) => {
-    setMembers(prev => prev.map(m => m.id === id ? { ...m, ...updatedFields } : m));
-    showToast('Member profile updated successfully!');
+    const updatedMembers = members.map(m => m.id === id ? { ...m, ...updatedFields } : m);
+    setMembers(updatedMembers);
+    syncToCloud('members', updatedMembers);
+    showToast('Member profile updated globally!');
   };
 
   const deleteMember = (id) => {
-    setMembers(prev => prev.filter(m => m.id !== id));
-    showToast('Member removed from directory.');
+    const updatedMembers = members.filter(m => m.id !== id);
+    setMembers(updatedMembers);
+    syncToCloud('members', updatedMembers);
+    showToast('Member removed globally.');
   };
 
   const loginAdmin = (email, password) => {
@@ -123,10 +207,14 @@ export const AppProvider = ({ children }) => {
     setMembers(initialMembers);
     setAdData(initialAd);
     localStorage.removeItem('gulabi_organisation');
-    localStorage.removeItem('gulabi_event');
+    localStorage.removeItem('gulabi_event_v2');
     localStorage.removeItem('gulabi_members');
     localStorage.removeItem('gulabi_ad');
-    showToast('Website restored to original defaults!');
+    syncToCloud('organisation', initialOrganisation);
+    syncToCloud('event', initialEvent);
+    syncToCloud('members', initialMembers);
+    syncToCloud('ad', initialAd);
+    showToast('Website restored to original defaults globally!');
   };
 
   return (
@@ -146,7 +234,8 @@ export const AppProvider = ({ children }) => {
       logoutAdmin,
       resetToDefaults,
       toastMessage,
-      showToast
+      showToast,
+      isCloudSynced
     }}>
       {children}
     </AppContext.Provider>
