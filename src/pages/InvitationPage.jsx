@@ -99,29 +99,6 @@ Looking forward to attending!`;
         <InvitationPass onRSVPClick={() => setRsvpModalOpen(true)} />
       </section>
 
-      {/* PROMINENT WEBSITE AD SPACE BANNER */}
-      <section className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-pink-900 via-rose-950 to-pink-950 text-white text-left shadow-xl border-2 border-pink-700 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div className="space-y-1.5 max-w-xl">
-          <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-500/20 text-pink-200 border border-pink-400/30 inline-block shadow-sm">
-            📢 WEBSITE ADVERTISING & SPONSORSHIP
-          </span>
-          <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">Book Ad Space on Our Website</h3>
-          <p className="text-xs text-pink-100 font-normal leading-relaxed">
-            Showcase your products, services, or promo videos to 300+ women entrepreneurs & thousands of site visitors across Rajasthan.
-          </p>
-        </div>
-
-        <a
-          href={`https://wa.me/919001299931?text=${encodeURIComponent("Hello Gulabi Visionaries, I am interested in booking Ad Space / Promo Banner on your website.")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full sm:w-auto px-6 py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition flex items-center justify-center gap-2 shrink-0 hover:scale-105"
-        >
-          <MessageCircle className="w-4 h-4 text-white" />
-          <span>Book Ad Space (+91 90012 99931)</span>
-        </a>
-      </section>
-
       {/* SECTION 2: THE VENUE SECTION (BNI Style Screenshot 3) */}
       <section className="space-y-6 text-left">
         <div className="space-y-2">
