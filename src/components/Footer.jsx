@@ -114,7 +114,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-pink-600 font-bold">•</span>
-                <span>Annual Gulabi Summit & Door Prizes</span>
+                <span>Gulabi Field Visits & Door Prizes</span>
               </li>
             </ul>
           </div>

@@ -10,6 +10,9 @@ export const MembersPage = () => {
   const [selectedGroup, setSelectedGroup] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  // Flag to control visibility of members section (Set to true in future to restore all members exactly as they are)
+  const SHOW_MEMBERS = false;
+
   const groups = ['All', 'Founders', 'Diary Emerald', 'Diary Pearl'];
 
   const categories = useMemo(() => {
@@ -18,6 +21,7 @@ export const MembersPage = () => {
   }, [members]);
 
   const filteredMembers = useMemo(() => {
+    if (!SHOW_MEMBERS) return [];
     const list = members.filter((member) => {
       const matchesSearch =
         member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

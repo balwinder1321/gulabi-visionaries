@@ -11,6 +11,9 @@ export const LandingPage = () => {
   const { organisation, eventData, members, adData } = useApp();
   const [adModalOpen, setAdModalOpen] = useState(false);
 
+  // Flag to control visibility of members section (Set to true in future to restore all members exactly as they are)
+  const SHOW_MEMBERS = false;
+
   useEffect(() => {
     if (adData && adData.enabled) {
       const timer = setTimeout(() => {
@@ -298,24 +301,26 @@ export const LandingPage = () => {
       </section>
 
 
-      {/* Founders & Core Leadership Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
-        <div className="space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Leadership & Vision</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-pink-950">
-            Meet the Founders
-          </h2>
-          <p className="text-sm text-gray-700 max-w-xl mx-auto font-normal">
-            Visionary leaders guiding Rajasthan's fastest-growing women entrepreneur ecosystem.
-          </p>
-        </div>
+      {/* Founders & Core Leadership Section - Hidden for now, set SHOW_MEMBERS = true to restore */}
+      {SHOW_MEMBERS && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
+          <div className="space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Leadership & Vision</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-pink-950">
+              Meet the Founders
+            </h2>
+            <p className="text-sm text-gray-700 max-w-xl mx-auto font-normal">
+              Visionary leaders guiding Rajasthan's fastest-growing women entrepreneur ecosystem.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {networkFounders.map((member) => (
-            <MemberCard key={member.id} member={member} />
-          ))}
-        </div>
-      </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {networkFounders.map((member) => (
+              <MemberCard key={member.id} member={member} />
+            ))}
+          </div>
+        </section>
+      )}
 
 
       {/* Meeting Rules & Community Discipline */}

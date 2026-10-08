@@ -20,6 +20,9 @@ export const InvitationPage = () => {
     guests: '1'
   });
 
+  // Flag to control visibility of members section (Set to true in future to restore all members exactly as they are)
+  const SHOW_MEMBERS = false;
+
   // Hierarchy Team Breakdown
   const founder = members.find(m => m.name.toLowerCase().includes('prachi')) || {
     name: "Prachi Agrawal",
@@ -117,7 +120,7 @@ Looking forward to attending!`;
           <div className="p-6 sm:p-8 bg-white border-t border-pink-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-2 max-w-xl">
               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-100 text-pink-900 border border-pink-300 inline-block shadow-sm">
-                ANNUAL SUMMIT & NETWORKING MEET
+                FIELD VISIT & NETWORKING MEET
               </span>
               <h3 className="text-2xl font-serif font-bold text-pink-950">{eventData.venue}</h3>
               <p className="text-xs text-gray-600 font-medium leading-relaxed">{eventData.address}</p>
@@ -141,124 +144,128 @@ Looking forward to attending!`;
         </div>
       </section>
 
-      {/* SECTION 3: LEADERSHIP TEAM HIERARCHY (BNI Style Screenshot 4) */}
-      <section className="space-y-8 text-center">
-        <div className="text-left space-y-2">
-          <div className="w-10 h-1 bg-pink-600 rounded-full" />
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-pink-950 tracking-tight">Leadership team</h2>
-        </div>
-
-        {/* Tree Hierarchy Chart Container */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-white border-2 border-pink-200 shadow-xl flex flex-col items-center">
-          
-          {/* TOP NODE: FOUNDER (PRACHI AGRAWAL) */}
-          <div 
-            onClick={() => setSelectedMemberModal(founder)}
-            className="cursor-pointer group flex flex-col items-center text-center max-w-xs transition"
-          >
-            <div className="relative mb-3">
-              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-md group-hover:scale-105 transition duration-300 bg-white overflow-hidden">
-                <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover object-center rounded-full" />
-              </div>
-            </div>
-
-            <span className="px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-pink-600 text-white shadow-sm mb-1.5">
-              FOUNDER
-            </span>
-            <h3 className="text-xl font-serif font-extrabold text-pink-950 group-hover:text-pink-600 transition">{founder.name}</h3>
-            <p className="text-xs text-gray-500 font-semibold">{founder.designation}</p>
+      {/* SECTION 3: LEADERSHIP TEAM HIERARCHY (BNI Style Screenshot 4) - Hidden for now, set SHOW_MEMBERS = true to restore */}
+      {SHOW_MEMBERS && (
+        <section className="space-y-8 text-center">
+          <div className="text-left space-y-2">
+            <div className="w-10 h-1 bg-pink-600 rounded-full" />
+            <h2 className="text-3xl sm:text-4xl font-serif font-black text-pink-950 tracking-tight">Leadership team</h2>
           </div>
 
-          {/* TREE CONNECTING BRANCH LINES */}
-          <div className="w-full max-w-md my-6 flex flex-col items-center">
-            {/* Vertical Line */}
-            <div className="w-0.5 h-8 bg-pink-400" />
-            {/* Horizontal Branch Bar */}
-            <div className="w-full h-0.5 bg-pink-400 relative">
-              <div className="absolute top-0 left-0 w-0.5 h-8 bg-pink-400" />
-              <div className="absolute top-0 right-0 w-0.5 h-8 bg-pink-400" />
-            </div>
-          </div>
-
-          {/* BOTTOM NODES: 2 CO-FOUNDERS */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16 w-full max-w-xl pt-2">
+          {/* Tree Hierarchy Chart Container */}
+          <div className="p-8 sm:p-12 rounded-3xl bg-white border-2 border-pink-200 shadow-xl flex flex-col items-center">
             
-            {/* CO-FOUNDER 1: PRATIBHA CHATURVEDI */}
+            {/* TOP NODE: FOUNDER (PRACHI AGRAWAL) */}
             <div 
-              onClick={() => setSelectedMemberModal(coFounder1)}
-              className="cursor-pointer group flex flex-col items-center text-center transition"
+              onClick={() => setSelectedMemberModal(founder)}
+              className="cursor-pointer group flex flex-col items-center text-center max-w-xs transition"
             >
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-md group-hover:scale-105 transition duration-300 bg-white mb-3 overflow-hidden">
-                <img src={coFounder1.photo} alt={coFounder1.name} className="w-full h-full object-cover object-center rounded-full" />
+              <div className="relative mb-3">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-md group-hover:scale-105 transition duration-300 bg-white overflow-hidden">
+                  <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover object-center rounded-full" />
+                </div>
               </div>
 
-              <span className="px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-600 text-white shadow-sm mb-1.5">
-                CO-FOUNDER
+              <span className="px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-pink-600 text-white shadow-sm mb-1.5">
+                FOUNDER
               </span>
-              <h4 className="text-lg font-serif font-bold text-pink-950 group-hover:text-pink-600 transition">{coFounder1.name}</h4>
-              <p className="text-xs text-gray-500 font-semibold">{coFounder1.company}</p>
+              <h3 className="text-xl font-serif font-extrabold text-pink-950 group-hover:text-pink-600 transition">{founder.name}</h3>
+              <p className="text-xs text-gray-500 font-semibold">{founder.designation}</p>
             </div>
 
-            {/* CO-FOUNDER 2: DEEPIKA SABOO */}
-            <div 
-              onClick={() => setSelectedMemberModal(coFounder2)}
-              className="cursor-pointer group flex flex-col items-center text-center transition"
-            >
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-md group-hover:scale-105 transition duration-300 bg-white mb-3 overflow-hidden">
-                <img src={coFounder2.photo} alt={coFounder2.name} className="w-full h-full object-cover object-center rounded-full" />
+            {/* TREE CONNECTING BRANCH LINES */}
+            <div className="w-full max-w-md my-6 flex flex-col items-center">
+              {/* Vertical Line */}
+              <div className="w-0.5 h-8 bg-pink-400" />
+              {/* Horizontal Branch Bar */}
+              <div className="w-full h-0.5 bg-pink-400 relative">
+                <div className="absolute top-0 left-0 w-0.5 h-8 bg-pink-400" />
+                <div className="absolute top-0 right-0 w-0.5 h-8 bg-pink-400" />
+              </div>
+            </div>
+
+            {/* BOTTOM NODES: 2 CO-FOUNDERS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-16 w-full max-w-xl pt-2">
+              
+              {/* CO-FOUNDER 1: PRATIBHA CHATURVEDI */}
+              <div 
+                onClick={() => setSelectedMemberModal(coFounder1)}
+                className="cursor-pointer group flex flex-col items-center text-center transition"
+              >
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-md group-hover:scale-105 transition duration-300 bg-white mb-3 overflow-hidden">
+                  <img src={coFounder1.photo} alt={coFounder1.name} className="w-full h-full object-cover object-center rounded-full" />
+                </div>
+
+                <span className="px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-600 text-white shadow-sm mb-1.5">
+                  CO-FOUNDER
+                </span>
+                <h4 className="text-lg font-serif font-bold text-pink-950 group-hover:text-pink-600 transition">{coFounder1.name}</h4>
+                <p className="text-xs text-gray-500 font-semibold">{coFounder1.company}</p>
               </div>
 
-              <span className="px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-600 text-white shadow-sm mb-1.5">
-                CO-FOUNDER
-              </span>
-              <h4 className="text-lg font-serif font-bold text-pink-950 group-hover:text-pink-600 transition">{coFounder2.name}</h4>
-              <p className="text-xs text-gray-500 font-semibold">{coFounder2.company}</p>
+              {/* CO-FOUNDER 2: DEEPIKA SABOO */}
+              <div 
+                onClick={() => setSelectedMemberModal(coFounder2)}
+                className="cursor-pointer group flex flex-col items-center text-center transition"
+              >
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-md group-hover:scale-105 transition duration-300 bg-white mb-3 overflow-hidden">
+                  <img src={coFounder2.photo} alt={coFounder2.name} className="w-full h-full object-cover object-center rounded-full" />
+                </div>
+
+                <span className="px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-600 text-white shadow-sm mb-1.5">
+                  CO-FOUNDER
+                </span>
+                <h4 className="text-lg font-serif font-bold text-pink-950 group-hover:text-pink-600 transition">{coFounder2.name}</h4>
+                <p className="text-xs text-gray-500 font-semibold">{coFounder2.company}</p>
+              </div>
+
             </div>
 
           </div>
+        </section>
+      )}
 
-        </div>
-      </section>
+      {/* SECTION 4: CORE MEMBERS GRID (BNI Style Screenshot 5) - Hidden for now, set SHOW_MEMBERS = true to restore */}
+      {SHOW_MEMBERS && (
+        <section className="space-y-6 text-center">
+          <div className="flex items-center justify-center gap-4 my-4">
+            <div className="h-px bg-pink-200 flex-1 max-w-xs" />
+            <span className="text-xs font-bold uppercase tracking-widest text-pink-700">CORE MEMBERS</span>
+            <div className="h-px bg-pink-200 flex-1 max-w-xs" />
+          </div>
 
-      {/* SECTION 4: CORE MEMBERS GRID (BNI Style Screenshot 5) */}
-      <section className="space-y-6 text-center">
-        <div className="flex items-center justify-center gap-4 my-4">
-          <div className="h-px bg-pink-200 flex-1 max-w-xs" />
-          <span className="text-xs font-bold uppercase tracking-widest text-pink-700">CORE MEMBERS</span>
-          <div className="h-px bg-pink-200 flex-1 max-w-xs" />
-        </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+            {coreMembers.map((m) => (
+              <motion.div
+                key={m.id}
+                whileHover={{ y: -4 }}
+                onClick={() => setSelectedMemberModal(m)}
+                className="p-5 rounded-2xl bg-white border-2 border-pink-200 hover:border-pink-400 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center text-center"
+              >
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-sm mb-3 bg-pink-50 overflow-hidden shrink-0">
+                  <img
+                    src={m.photo || "/members/member_17_pratibha_chaturvedi.jpeg"}
+                    alt={m.name}
+                    className="w-full h-full object-cover object-center rounded-full"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/members/member_17_pratibha_chaturvedi.jpeg';
+                    }}
+                  />
+                </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-          {coreMembers.map((m) => (
-            <motion.div
-              key={m.id}
-              whileHover={{ y: -4 }}
-              onClick={() => setSelectedMemberModal(m)}
-              className="p-5 rounded-2xl bg-white border-2 border-pink-200 hover:border-pink-400 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center text-center"
-            >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-dashed border-pink-500 shadow-sm mb-3 bg-pink-50 overflow-hidden shrink-0">
-                <img
-                  src={m.photo || "/members/member_17_pratibha_chaturvedi.jpeg"}
-                  alt={m.name}
-                  className="w-full h-full object-cover object-center rounded-full"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/members/member_17_pratibha_chaturvedi.jpeg';
-                  }}
-                />
-              </div>
+                <span className="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-pink-100 text-pink-800 border border-pink-300 mb-1.5">
+                  {m.group || 'MEMBER'}
+                </span>
 
-              <span className="px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-pink-100 text-pink-800 border border-pink-300 mb-1.5">
-                {m.group || 'MEMBER'}
-              </span>
-
-              <h4 className="text-sm sm:text-base font-serif font-bold text-pink-950 line-clamp-1">{m.name}</h4>
-              <p className="text-[11px] text-pink-700 font-bold uppercase tracking-wide line-clamp-1 mt-0.5">{m.company}</p>
-              <p className="text-[10px] text-gray-500 font-normal line-clamp-1">{m.category}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+                <h4 className="text-sm sm:text-base font-serif font-bold text-pink-950 line-clamp-1">{m.name}</h4>
+                <p className="text-[11px] text-pink-700 font-bold uppercase tracking-wide line-clamp-1 mt-0.5">{m.company}</p>
+                <p className="text-[10px] text-gray-500 font-normal line-clamp-1">{m.category}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* SECTION 5: JOIN US CTA BANNER */}
       <section className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 text-white text-center shadow-xl space-y-6 relative overflow-hidden">
@@ -370,7 +377,7 @@ Looking forward to attending!`;
               </button>
 
               <h3 className="text-2xl font-serif font-bold text-pink-950 mb-2">RSVP / Confirm Attendance</h3>
-              <p className="text-xs text-gray-600 mb-6 font-normal">Reserve your seat for Gulabi Visionaries Annual Summit.</p>
+              <p className="text-xs text-gray-600 mb-6 font-normal">Reserve your seat for Gulabi Visionaries Field Visit.</p>
 
               <form onSubmit={handleRSVPSubmit} className="space-y-4">
                 <div>
