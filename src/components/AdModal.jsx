@@ -138,19 +138,23 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
           </div>
 
           {/* Bottom Info Bar */}
-          <div className="p-5 sm:p-6 bg-white border-t border-pink-200 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
-            <div className="text-left w-full sm:w-auto">
-              <h4 className="text-lg font-serif font-bold text-pink-950 line-clamp-1">{adData.title}</h4>
-              <p className="text-xs text-gray-600 font-normal mt-0.5 line-clamp-2 max-w-md">{adData.subtitle}</p>
+          <div className="p-5 sm:p-6 bg-white border-t border-pink-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shrink-0">
+            <div className="text-left flex-1 min-w-0 pr-2">
+              <h4 className="text-base sm:text-lg font-serif font-bold text-pink-950 truncate">{adData.title}</h4>
+              <p className="text-xs text-gray-600 font-normal mt-0.5 line-clamp-2">{adData.subtitle}</p>
             </div>
 
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+            <div className="w-full sm:w-auto shrink-0 flex justify-end">
               <button
                 onClick={handleAdClick}
-                className="w-full sm:w-auto px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 shrink-0"
+                className="w-full sm:w-auto px-5 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <span>{adData.ctaText && !adData.ctaText.includes('Explore Collection') ? adData.ctaText.replace(/›/g, '').trim() : 'Visit Page'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>
+                  {adData.ctaText && !adData.ctaText.includes('Explore Collection')
+                    ? adData.ctaText.replace(/›/g, '').trim()
+                    : 'Visit Page'}
+                </span>
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </button>
             </div>
           </div>

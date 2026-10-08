@@ -22,7 +22,11 @@ export const AppProvider = ({ children }) => {
 
   const [adData, setAdData] = useState(() => {
     const saved = localStorage.getItem('gulabi_ad');
-    return saved ? JSON.parse(saved) : initialAd;
+    const parsed = saved ? JSON.parse(saved) : initialAd;
+    if (parsed && parsed.ctaText && parsed.ctaText.includes('Explore Collection')) {
+      parsed.ctaText = 'Visit Page';
+    }
+    return parsed;
   });
 
   const [adminUser, setAdminUser] = useState(null);
