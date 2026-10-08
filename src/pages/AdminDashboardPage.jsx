@@ -43,7 +43,7 @@ export const AdminDashboardPage = () => {
     subtitle: 'Check out our featured deals from Gulabi Visionaries members.',
     mediaType: 'image',
     mediaUrl: '/members/member_17_pratibha_chaturvedi.jpeg',
-    redirectUrl: '/members',
+    redirectUrl: 'https://www.instagram.com/gulabi_visionaries?stkn=MW5yNzkxOXpmdmE1NA==',
     skipSeconds: 3,
     badgeText: 'SPONSORED AD',
     ctaText: 'Visit Page'

@@ -32,18 +32,23 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
 
   if (!isOpen || !adData || !adData.enabled) return null;
 
-  const handleAdClick = () => {
-    if (!adData?.redirectUrl) return;
-    let url = adData.redirectUrl.trim();
-    if (!url) return;
+  const handleAdClick = (e) => {
+    if (e) {
+      e.stopPropagation();
+    }
+    const rawUrl = adData?.redirectUrl ? adData.redirectUrl.trim() : "";
+    const targetUrl = (rawUrl && rawUrl !== '/members' && rawUrl !== '/join')
+      ? rawUrl
+      : "https://www.instagram.com/gulabi_visionaries?stkn=MW5yNzkxOXpmdmE1NA==";
 
-    if (url.startsWith('/')) {
-      navigate(url);
+    let finalUrl = targetUrl;
+    if (finalUrl.startsWith('/')) {
+      navigate(finalUrl);
     } else {
-      if (!url.startsWith('http://') && !url.startsWith('https://')) {
-        url = `https://${url}`;
+      if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
+        finalUrl = `https://${finalUrl}`;
       }
-      window.open(url, '_blank', 'noopener,noreferrer');
+      window.open(finalUrl, '_blank', 'noopener,noreferrer');
     }
     onClose();
   };

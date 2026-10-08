@@ -23,8 +23,13 @@ export const AppProvider = ({ children }) => {
   const [adData, setAdData] = useState(() => {
     const saved = localStorage.getItem('gulabi_ad');
     const parsed = saved ? JSON.parse(saved) : initialAd;
-    if (parsed && parsed.ctaText && parsed.ctaText.includes('Explore Collection')) {
-      parsed.ctaText = 'Visit Page';
+    if (parsed) {
+      if (parsed.ctaText && parsed.ctaText.includes('Explore Collection')) {
+        parsed.ctaText = 'Visit Page';
+      }
+      if (!parsed.redirectUrl || parsed.redirectUrl === '/members' || parsed.redirectUrl === '/join') {
+        parsed.redirectUrl = 'https://www.instagram.com/gulabi_visionaries?stkn=MW5yNzkxOXpmdmE1NA==';
+      }
     }
     return parsed;
   });

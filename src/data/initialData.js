@@ -275,7 +275,7 @@ export const initialAd = {
   subtitle: "Handcrafted cold-processed soaps, botanical serums, and scented soy candles by Founder Pratibha Chaturvedi.",
   mediaType: "image", // 'image' or 'video'
   mediaUrl: "/members/member_17_pratibha_chaturvedi.jpeg",
-  redirectUrl: "/members",
+  redirectUrl: "https://www.instagram.com/gulabi_visionaries?stkn=MW5yNzkxOXpmdmE1NA==",
   skipSeconds: 3,
   badgeText: "SPONSORED AD",
   ctaText: "Visit Page"
