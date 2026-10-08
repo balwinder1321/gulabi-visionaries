@@ -30,3 +30,5 @@ rendered_pages/
 public_assets/
 *.py
 extracted_data.json
+
+.vercel
