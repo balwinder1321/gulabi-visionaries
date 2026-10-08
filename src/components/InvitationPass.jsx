@@ -77,7 +77,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <div className="space-y-1">
                   <span className="text-xs font-bold uppercase tracking-widest text-pink-600 block">YOU'RE INVITED</span>
                   <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-pink-950 leading-tight">
-                    {eventData.name}
+                    {eventData.name || 'Field Visit at Gopala Poshak Bhandar'}
                   </h2>
                 </div>
 
@@ -86,12 +86,12 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <div className="space-y-2 text-sm text-gray-700 font-medium">
                   <div className="flex items-center justify-center gap-2">
                     <Calendar className="w-4 h-4 text-pink-600" />
-                    <span>{eventData.date} ({eventData.day})</span>
+                    <span>{eventData.date || '2026-10-15'}{eventData.day ? ` (${eventData.day})` : ''}</span>
                   </div>
 
                   <div className="flex items-center justify-center gap-2 text-xs text-gray-600">
                     <MapPin className="w-4 h-4 text-pink-600 shrink-0" />
-                    <span className="truncate max-w-xs">{eventData.venue}</span>
+                    <span className="truncate max-w-xs">{eventData.venue || 'Gopala Poshak Bhandar by Nikkita Agarwal'}</span>
                   </div>
                 </div>
 
