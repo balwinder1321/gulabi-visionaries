@@ -140,6 +140,9 @@ export const Footer = () => {
                     <a href="tel:+918209574757" className="text-pink-950 hover:text-pink-700 font-semibold block">
                       +91 82095 74757 (Pratibha)
                     </a>
+                    <a href="tel:+919001299931" className="text-pink-950 hover:text-pink-700 font-semibold block">
+                      +91 90012 99931 (Deepika - Ad Inquiries)
+                    </a>
                   </div>
                 </div>
               </div>
