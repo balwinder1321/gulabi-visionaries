@@ -278,5 +278,5 @@ export const initialAd = {
   redirectUrl: "/members",
   skipSeconds: 3,
   badgeText: "SPONSORED AD",
-  ctaText: "Explore Collection & Contact Member ›"
+  ctaText: "Visit Page"
 };

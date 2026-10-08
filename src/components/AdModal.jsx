@@ -149,7 +149,7 @@ export const AdModal = ({ adData, isOpen, onClose }) => {
                 onClick={handleAdClick}
                 className="w-full sm:w-auto px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-500 hover:to-rose-500 text-white shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 shrink-0"
               >
-                <span>{adData.ctaText || 'Visit Page'}</span>
+                <span>{adData.ctaText && !adData.ctaText.includes('Explore Collection') ? adData.ctaText.replace(/›/g, '').trim() : 'Visit Page'}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

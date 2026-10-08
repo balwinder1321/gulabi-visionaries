@@ -46,7 +46,7 @@ export const AdminDashboardPage = () => {
     redirectUrl: '/members',
     skipSeconds: 3,
     badgeText: 'SPONSORED AD',
-    ctaText: 'Visit Featured Page ›'
+    ctaText: 'Visit Page'
   });
 
   // Member Modal State (Add / Edit)
