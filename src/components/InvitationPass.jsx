@@ -123,8 +123,8 @@ export const InvitationPass = ({ onRSVPClick }) => {
 
               {/* Event Image Banner if present */}
               {eventData.bannerImage && (
-                <div className="rounded-2xl overflow-hidden border border-pink-200 shadow-sm max-h-64 bg-pink-50">
-                  <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-full object-cover" />
+                <div className="rounded-2xl overflow-hidden border border-pink-200 shadow-sm max-h-[500px] bg-pink-50 flex items-center justify-center p-2">
+                  <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-auto max-h-[480px] object-contain rounded-xl" />
                 </div>
               )}
 

@@ -29,7 +29,7 @@ export const initialEvent = {
   address: "113 Kailashpuri, Behind Khandaka Hospital, Tonk Road, Jaipur, Rajasthan 302018",
   description: "Join Gulabi Visionaries for an exclusive Field Visit at Gopala Poshak Bhandar by Nikkita Agarwal. Discover divine handcrafted Laddu Gopal poshaks, festive heavy-work & daily cotton sets for Thakur Ji.",
   googleMapsUrl: "https://www.google.com/maps?q=26.8554959,75.796636&z=17&hl=en",
-  bannerImage: "/assets/event_invitation_pic.png",
+  bannerImage: "/assets/field_visit_gopala_poster.jpg",
   agenda: [
     { time: "12:00 PM", title: "Arrival & Welcome at Gopala Poshak Bhandar", desc: "Welcome high tea & open networking." },
     { time: "12:20 PM", title: "Showcase of Handcrafted Laddu Gopal Poshaks", desc: "Exquisite designs, premium fabrics & all sizes (0-6+)." },
