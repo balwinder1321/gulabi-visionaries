@@ -4,7 +4,7 @@ import { useApp } from '../context/AppContext';
 import { EventCountdown } from '../components/EventCountdown';
 import { MemberCard } from '../components/MemberCard';
 import { AdModal } from '../components/AdModal';
-import { Sparkles, Calendar, Users, Award, ShieldCheck, ArrowRight, CheckCircle, Video, MessageCircle, Mic, CreditCard, ChevronRight, Quote, Play, ExternalLink } from 'lucide-react';
+import { Sparkles, Calendar, Users, Award, ShieldCheck, ArrowRight, CheckCircle, Video, MessageCircle, Mic, CreditCard, ChevronRight, Quote, Play, ExternalLink, Target, Compass, TrendingUp, Tv, Globe, CheckCircle2, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const LandingPage = () => {
@@ -70,11 +70,51 @@ export const LandingPage = () => {
 
   const keyBenefits = [
     { title: "Networking Opportunities", desc: "Connect with like-minded women entrepreneurs and expand your professional network through events and collaboration.", icon: Users },
-    { title: "Access to Referrals", desc: "Gain valuable referral, guides to help you grow your business efficiently.", icon: Award },
-    { title: "Business and Support", desc: "Members shall be engaged to give business and support your entrepreneurial journey. We have the feature of business sharing on WhatsApp status or Insta story sharing.", icon: MessageCircle },
-    { title: "Social media team", desc: "We understand your Social media needs, hence have a team ready for you that shall work for you and help you get good visibility with the help of posts or reels or both.", icon: Video },
-    { title: "Virtual Business cards", desc: "Its a need of today and a must for every Entrepreneur. Its your savior whenever you meet a new person.", icon: CreditCard },
-    { title: "Podcast", desc: "Members shall be engaged in a talk show about their business and support your entrepreneurial journey. This feature is completely free for members with a minimum food charges applicable.", icon: Mic }
+    { title: "Access to Referrals", desc: "Gain valuable referral guides and warm leads to help you grow your business efficiently.", icon: Award },
+    { title: "Business and Support", desc: "Members shall be engaged to give business and support your entrepreneurial journey. We feature business sharing on WhatsApp status and Instagram story sharing.", icon: MessageCircle },
+    { title: "Social Media Team", desc: "We understand your social media needs and have a dedicated team ready to help you gain high visibility through posts, reels, and digital campaigns.", icon: Video },
+    { title: "Virtual Business Cards", desc: "A modern essential for every entrepreneur. Easily shareable digital cards whenever you connect with new clients or partners.", icon: CreditCard },
+    { title: "Gulabi Podcast & Talkshow", desc: "Members are featured in an exclusive talk show about their business, amplifying reach across YouTube and Spotify (free feature with minimum food charges applicable).", icon: Mic }
+  ];
+
+  const visionariesGoals = [
+    {
+      category: "Digital Expansion",
+      badge: "PODCAST & YOUTUBE",
+      icon: Tv,
+      items: [
+        "Gulabi Visionaries Podcast — a professional talkshow for Women Entrepreneurs.",
+        "YouTube channel featuring inspiring member Business Stories."
+      ]
+    },
+    {
+      category: "Business Impact",
+      badge: "REVENUE & GROWTH",
+      icon: TrendingUp,
+      items: [
+        "Members achieve measurable revenue growth.",
+        "Cross collaborations and strategic partnerships between members."
+      ]
+    },
+    {
+      category: "Community Growth",
+      badge: "300+ NETWORK",
+      icon: Users,
+      items: [
+        "We are a thriving community of 300+ passionate women entrepreneurs in Gulabi Visionaries.",
+        "We are a supporting and strong referral system."
+      ]
+    },
+    {
+      category: "Visibility & Branding",
+      badge: "MEDIA PRESENCE",
+      icon: Globe,
+      items: [
+        "Strong WhatsApp community, Instagram and YouTube presence.",
+        "Featured in Rajasthan Media.",
+        "Recognized as a premium women Entrepreneur platform."
+      ]
+    }
   ];
 
   const meetingRules = [
@@ -265,15 +305,161 @@ export const LandingPage = () => {
       </section>
 
 
+      {/* Vision & Mission Section (As per PDF Slides) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Our Foundation</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-pink-950">
+            Vision & Mission Statement
+          </h2>
+          <p className="text-sm text-gray-700 font-normal">
+            Building a supportive and powerful ecosystem for women entrepreneurs across Rajasthan.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Vision Card */}
+          <motion.div
+            whileHover={{ y: -4 }}
+            className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-pink-900 via-rose-950 to-pink-950 text-white border border-pink-700 shadow-xl relative overflow-hidden flex flex-col justify-between text-left"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/10 blur-[90px] pointer-events-none"></div>
+
+            <div className="space-y-6 relative z-10">
+              <div className="flex items-center justify-between">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-200 text-xs font-bold uppercase tracking-wider">
+                  <Compass className="w-4 h-4 text-pink-300" />
+                  <span>Vision of the Visionaries</span>
+                </div>
+                <Quote className="w-10 h-10 text-pink-400/30 shrink-0" />
+              </div>
+
+              <blockquote className="text-lg sm:text-xl font-serif font-medium leading-relaxed text-pink-50 italic border-l-4 border-pink-500 pl-4">
+                “To create a powerful ecosystem where every woman entrepreneur has equal access to opportunities, networks, and resources, enabling her to build a thriving business, achieve financial independence, and make a meaningful impact on society.”
+              </blockquote>
+            </div>
+
+            <div className="pt-8 flex items-center gap-3 relative z-10 border-t border-pink-800/80 mt-6">
+              <div className="w-10 h-10 rounded-full bg-pink-600/30 border border-pink-400/30 flex items-center justify-center text-pink-300">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="block text-xs font-bold text-white uppercase tracking-wider">Gulabi Visionaries Core Vision</span>
+                <span className="block text-[11px] text-pink-300 font-normal">Guiding women entrepreneurs to national impact</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mission Card */}
+          <motion.div
+            whileHover={{ y: -4 }}
+            className="p-8 sm:p-10 rounded-3xl bg-white border-2 border-pink-200 shadow-xl space-y-6 text-left flex flex-col justify-between relative overflow-hidden"
+          >
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-100 border border-pink-300 text-pink-900 text-xs font-bold uppercase tracking-wider">
+                  <Target className="w-4 h-4 text-pink-600" />
+                  <span>Mission Statement</span>
+                </div>
+                <Sparkles className="w-6 h-6 text-pink-400" />
+              </div>
+
+              <div className="space-y-4 text-sm text-gray-700 leading-relaxed font-normal">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
+                  <p className="font-medium text-pink-950">
+                    Our mission at Gulabi Visionaries is to unite Visionary women, nurture their entrepreneurial spirit, and create opportunities for collaboration, learning and growth.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
+                  <p>
+                    Through Networking meets, WhatsApp Marketing, and Instagram marketing, we build a supportive ecosystem where women uplift one another, celebrate each other's successes, and rise together to create lasting economic and social impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-pink-100 flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-wider text-pink-800">
+              <span className="px-3 py-1 rounded-full bg-pink-50 border border-pink-200">🤝 Collaboration</span>
+              <span className="px-3 py-1 rounded-full bg-pink-50 border border-pink-200">📈 Business Growth</span>
+              <span className="px-3 py-1 rounded-full bg-pink-50 border border-pink-200">✨ Equal Opportunities</span>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+
+      {/* Goals of Gulabi Visionaries Section (4 Pillars as per PDF Slides) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
+        <div className="max-w-2xl mx-auto space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Strategic Objectives</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-pink-950">
+            Goals of Gulabi Visionaries
+          </h2>
+          <p className="text-sm text-gray-700 font-normal">
+            Four key pillars designed to elevate every member's business footprint and brand presence.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+          {visionariesGoals.map((goal, idx) => {
+            const Icon = goal.icon;
+            return (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -6 }}
+                className="p-6 rounded-3xl bg-white border-2 border-pink-200 hover:border-pink-500 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 group"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-600 to-rose-600 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition duration-300">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-pink-100 text-pink-900 border border-pink-300 px-2.5 py-1 rounded-full">
+                      {goal.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-serif font-bold text-pink-950 group-hover:text-pink-600 transition-colors">
+                    {goal.category}
+                  </h3>
+
+                  <ul className="space-y-3 pt-1">
+                    {goal.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start gap-2.5 text-xs text-gray-700 font-medium leading-relaxed">
+                        <CheckCircle className="w-4 h-4 text-pink-600 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-pink-100 text-right">
+                  <span className="text-[11px] font-bold text-pink-700 group-hover:text-pink-900 transition flex items-center justify-end gap-1">
+                    <span>Pillar #{idx + 1}</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+
       {/* Key Benefits Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
         <div className="max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-pink-700 block">Why Join Gulabi Visionaries</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-pink-950">
-            Transforming Your Business Journey
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-pink-950">
+            Member Benefits & Privileges
           </h2>
           <p className="text-sm text-gray-700 font-normal">
-            Designed specifically for women entrepreneurs to achieve scalable revenue growth and digital visibility.
+            Designed specifically for women entrepreneurs to achieve scalable revenue growth, networking, and digital visibility.
           </p>
         </div>
 
