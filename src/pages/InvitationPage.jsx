@@ -99,22 +99,6 @@ Looking forward to attending!`;
         <InvitationPass onRSVPClick={() => setRsvpModalOpen(true)} />
       </section>
 
-      {/* SECTION 1.5: OFFICIAL EVENT INVITATION POSTER */}
-      <section className="space-y-4 text-center">
-        <div className="text-left space-y-2">
-          <div className="w-10 h-1 bg-pink-600 rounded-full" />
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-pink-950 tracking-tight">Official Event Invitation</h2>
-        </div>
-
-        <div className="rounded-3xl overflow-hidden border-2 border-pink-200 bg-white p-3 sm:p-5 shadow-xl flex items-center justify-center">
-          <img
-            src="/assets/field_visit_gopala_poster.jpg"
-            alt="Field Visit - Gopala Poshak Bhandar by Nikkita Agarwal"
-            className="w-full max-w-2xl rounded-2xl shadow-md border border-pink-100 object-contain"
-          />
-        </div>
-      </section>
-
       {/* SECTION 2: THE VENUE SECTION (BNI Style Screenshot 3) */}
       <section className="space-y-6 text-left">
         <div className="space-y-2">
