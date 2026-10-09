@@ -27,9 +27,25 @@ export const AppProvider = ({ children }) => {
     }
   });
 
+  const sanitizeMemberData = (memberList) => {
+    if (!Array.isArray(memberList)) return memberList;
+    return memberList.map(m => {
+      if (m.name && m.name.toLowerCase().includes('prachi')) {
+        return {
+          ...m,
+          company: 'Learning Cubs',
+          category: 'Activity Center',
+          bio: 'Founder & Core Administrator of Gulabi Visionaries. Heading Learning Cubs child development activity center.'
+        };
+      }
+      return m;
+    });
+  };
+
   const [members, setMembers] = useState(() => {
     const saved = localStorage.getItem('gulabi_members');
-    return saved ? JSON.parse(saved) : initialMembers;
+    const parsed = saved ? JSON.parse(saved) : initialMembers;
+    return sanitizeMemberData(parsed);
   });
 
   const [adData, setAdData] = useState(() => {
@@ -75,8 +91,9 @@ export const AppProvider = ({ children }) => {
               }
             }
             if (result.data.members) {
-              setMembers(result.data.members);
-              localStorage.setItem('gulabi_members', JSON.stringify(result.data.members));
+              const sanitized = sanitizeMemberData(result.data.members);
+              setMembers(sanitized);
+              localStorage.setItem('gulabi_members', JSON.stringify(sanitized));
             }
             if (result.data.ad) {
               setAdData(result.data.ad);
