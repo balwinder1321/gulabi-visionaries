@@ -66,14 +66,14 @@ export const initialMembers = [
   {
     id: "19",
     name: "Prachi Agrawal",
-    company: "Gulabi Microgreens and Learning Cubs",
+    company: "Learning Cubs",
     designation: "Founder & Executive Administrator",
-    category: "Microgreens and Activity Center",
+    category: "Activity Center",
     email: "prachimansinghka@gmail.com",
     phone: "7742459585",
     group: "Founders",
     photo: "/members/member_19_prachi_agrawal.jpeg",
-    bio: "Founder & Core Administrator of Gulabi Visionaries. Cultivating organic nutrient-rich microgreens and heading Learning Cubs child development activity center."
+    bio: "Founder & Core Administrator of Gulabi Visionaries. Heading Learning Cubs child development activity center."
   },
   {
     id: "1",

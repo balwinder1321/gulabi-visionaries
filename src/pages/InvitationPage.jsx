@@ -26,9 +26,9 @@ export const InvitationPage = () => {
   // Hierarchy Team Breakdown
   const founder = members.find(m => m.name.toLowerCase().includes('prachi')) || {
     name: "Prachi Agrawal",
-    company: "Gulabi Microgreens & Learning Cubs",
+    company: "Learning Cubs",
     designation: "Founder & Executive Administrator",
-    category: "Microgreens & Activity Center",
+    category: "Activity Center",
     photo: "/members/member_19_prachi_agrawal.jpeg",
     phone: "7742459585",
     email: "prachimansinghka@gmail.com",

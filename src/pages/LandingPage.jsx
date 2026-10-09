@@ -26,9 +26,9 @@ export const LandingPage = () => {
   const prachi = members.find(m => m.name.toLowerCase().includes('prachi')) || {
     id: '19',
     name: 'Prachi Agrawal',
-    company: 'Gulabi Microgreens & Learning Cubs',
+    company: 'Learning Cubs',
     designation: 'Founder & Executive Administrator',
-    category: 'Microgreens & Activity Center',
+    category: 'Activity Center',
     group: 'FOUNDER',
     photo: '/members/member_19_prachi_agrawal.jpeg',
     bio: 'Founder & Core Administrator of Gulabi Visionaries.'
