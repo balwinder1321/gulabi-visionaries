@@ -7,7 +7,7 @@ import { Calendar, Clock, MapPin, Sparkles, Share2, MessageCircle, CheckCircle2,
 import confetti from 'canvas-confetti';
 
 export const InvitationPass = ({ onRSVPClick }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [copied, setCopied] = useState(false);
   const { eventData, organisation } = useApp();
 
@@ -23,7 +23,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
 
   const handleShareWhatsApp = () => {
     const url = window.location.origin + '/invitation';
-    const text = `🌸 *OFFICIAL EVENT INVITATION* 🌸\n\nYou are cordially invited to *${eventData.name}* hosted by *${organisation.name}*!\n\n📅 Date: ${eventData.date} (${eventData.day})\n⏰ Time: ${eventData.time}\n📍 Venue: ${eventData.venue}\n\nClick here to view your VIP invitation pass & RSVP:\n${url}`;
+    const text = `🌸 *TOGETHER WE RISE - OFFICIAL INVITATION* 🌸\n\nYou are cordially invited to *${eventData.name || 'Advertise With Us'}* hosted by *${organisation.name}*!\n\n📅 Date: ${eventData.date} (${eventData.day})\n⏰ Time: ${eventData.time}\n📍 Venue: ${eventData.venue}\n\nClick here to view your VIP invitation pass & advertise with us:\n${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -33,7 +33,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
     setTimeout(() => setCopied(false), 3000);
   };
 
-  const passTitle = organisation?.invitationBranding || 'Empowering Women';
+  const passTitle = organisation?.invitationBranding || 'Together We Rise';
   const ribbonLabel = `${passTitle.toUpperCase()} • ${passTitle.toUpperCase()} •`;
 
   return (
@@ -77,21 +77,27 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <div className="space-y-1">
                   <span className="text-xs font-bold uppercase tracking-widest text-pink-600 block">YOU'RE INVITED</span>
                   <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-pink-950 leading-tight">
-                    {eventData.name || 'Field Visit at Gopala Poshak Bhandar'}
+                    {eventData.name || 'Advertise With Us'}
                   </h2>
                 </div>
+
+                {eventData.bannerImage && (
+                  <div className="w-full max-h-64 rounded-2xl overflow-hidden border border-pink-200 shadow-sm bg-pink-50 flex items-center justify-center p-1.5 my-2">
+                    <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-auto max-h-60 object-contain rounded-xl" />
+                  </div>
+                )}
 
                 <div className="w-full h-px bg-pink-100 my-2" />
 
                 <div className="space-y-2 text-sm text-gray-700 font-medium">
                   <div className="flex items-center justify-center gap-2">
                     <Calendar className="w-4 h-4 text-pink-600" />
-                    <span>{eventData.date || '2026-10-15'}{eventData.day ? ` (${eventData.day})` : ''}</span>
+                    <span>{eventData.date || '2026-11-15'}{eventData.day ? ` (${eventData.day})` : ''}</span>
                   </div>
 
                   <div className="flex items-center justify-center gap-2 text-xs text-gray-600">
                     <MapPin className="w-4 h-4 text-pink-600 shrink-0" />
-                    <span className="truncate max-w-xs">{eventData.venue || 'Gopala Poshak Bhandar by Nikkita Agarwal'}</span>
+                    <span className="truncate max-w-xs">{eventData.venue || 'Jaipur, India'}</span>
                   </div>
                 </div>
 
@@ -123,8 +129,8 @@ export const InvitationPass = ({ onRSVPClick }) => {
 
               {/* Event Image Banner if present */}
               {eventData.bannerImage && (
-                <div className="rounded-2xl overflow-hidden border border-pink-200 shadow-sm max-h-[500px] bg-pink-50 flex items-center justify-center p-2">
-                  <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-auto max-h-[480px] object-contain rounded-xl" />
+                <div className="rounded-2xl overflow-hidden border border-pink-200 shadow-md max-h-[640px] bg-pink-50 flex items-center justify-center p-2">
+                  <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-auto max-h-[620px] object-contain rounded-xl shadow-sm" />
                 </div>
               )}
 
@@ -162,7 +168,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
                   className="w-full py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-md transition flex items-center justify-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>RSVP / Confirm Attendance</span>
+                  <span>Inquire / RSVP to Advertise</span>
                 </button>
 
                 <div className="flex items-center gap-2">

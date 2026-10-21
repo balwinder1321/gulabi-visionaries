@@ -120,7 +120,7 @@ Looking forward to attending!`;
           <div className="p-6 sm:p-8 bg-white border-t border-pink-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-2 max-w-xl">
               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-100 text-pink-900 border border-pink-300 inline-block shadow-sm">
-                FIELD VISIT & NETWORKING MEET
+                ADVERTISING & NETWORKING MEET
               </span>
               <h3 className="text-2xl font-serif font-bold text-pink-950">{eventData.venue}</h3>
               <p className="text-xs text-gray-600 font-medium leading-relaxed">{eventData.address}</p>
@@ -401,8 +401,8 @@ Looking forward to attending!`;
                 <X className="w-5 h-5" />
               </button>
 
-              <h3 className="text-2xl font-serif font-bold text-pink-950 mb-2">RSVP / Confirm Attendance</h3>
-              <p className="text-xs text-gray-600 mb-6 font-normal">Reserve your seat for Gulabi Visionaries Field Visit.</p>
+              <h3 className="text-2xl font-serif font-bold text-pink-950 mb-2">RSVP / Advertising Inquiry</h3>
+              <p className="text-xs text-gray-600 mb-6 font-normal">Connect with Gulabi Visionaries & Together We Rise to showcase and advertise your brand in Jaipur, India.</p>
 
               <form onSubmit={handleRSVPSubmit} className="space-y-4">
                 <div>
@@ -445,7 +445,7 @@ Looking forward to attending!`;
                   className="w-full py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-md transition flex items-center justify-center gap-2 mt-4"
                 >
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Submit RSVP via WhatsApp</span>
+                  <span>Submit Inquiry via WhatsApp</span>
                 </button>
               </form>
             </motion.div>

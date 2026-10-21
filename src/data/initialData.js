@@ -11,7 +11,7 @@ export const initialOrganisation = {
   youtubeUrl: "https://youtube.com/@gulabivisionaries",
   whatsappNumber: "917742459585",
   showMembersDirectory: false,
-  invitationBranding: "Empowering Women",
+  invitationBranding: "Together We Rise",
   stats: {
     membersCount: "300+",
     referralsPassed: "1,200+",
@@ -21,20 +21,20 @@ export const initialOrganisation = {
 };
 
 export const initialEvent = {
-  name: "Field Visit at Gopala Poshak Bhandar",
-  date: "2026-10-15",
-  day: "Thursday",
-  time: "12:00 PM Onwards",
-  venue: "Gopala Poshak Bhandar by Nikkita Agarwal",
-  address: "113 Kailashpuri, Behind Khandaka Hospital, Tonk Road, Jaipur, Rajasthan 302018",
-  description: "Join Gulabi Visionaries for an exclusive Field Visit at Gopala Poshak Bhandar by Nikkita Agarwal. Discover divine handcrafted Laddu Gopal poshaks, festive heavy-work & daily cotton sets for Thakur Ji.",
-  googleMapsUrl: "https://www.google.com/maps?q=26.8554959,75.796636&z=17&hl=en",
-  bannerImage: "/assets/field_visit_gopala_poster.jpg",
+  name: "Advertise With Us",
+  date: "2026-11-15",
+  day: "Sunday",
+  time: "11:00 AM Onwards",
+  venue: "Jaipur, India",
+  address: "Jaipur, Rajasthan, India",
+  description: "Join Together We Rise & Gulabi Visionaries to amplify your business reach. We invite visionary entrepreneurs, corporate partners, and brands to advertise, sponsor, and showcase your enterprise across our premium business network of 300+ women leaders, exclusive events, and digital platforms in Jaipur, India.",
+  googleMapsUrl: "https://www.google.com/maps?q=Jaipur,+Rajasthan,+India",
+  bannerImage: "/assets/advertise_with_us.jpg",
   agenda: [
-    { time: "12:00 PM", title: "Arrival & Welcome at Gopala Poshak Bhandar", desc: "Welcome high tea & open networking." },
-    { time: "12:20 PM", title: "Showcase of Handcrafted Laddu Gopal Poshaks", desc: "Exquisite designs, premium fabrics & all sizes (0-6+)." },
-    { time: "01:00 PM", title: "Business Networking & Spotlight Session", desc: "Member introductions and referral sharing." },
-    { time: "01:45 PM", title: "Photo Session & High Tea", desc: "Commemorative group photos & refreshment." }
+    { time: "11:00 AM", title: "Brand Spotlight & Advertising Opportunities", desc: "Discover website banners, event sponsorship & podcast spotlight packages." },
+    { time: "11:45 AM", title: "Network Showcase & Media Reach", desc: "Showcase your brand to 300+ women entrepreneurs and thousands of site visitors." },
+    { time: "12:30 PM", title: "One-on-One Brand Strategy & Sponsorship Consultation", desc: "Tailored promotion strategies for your enterprise." },
+    { time: "01:15 PM", title: "High Tea & Visionary Networking", desc: "Connect with the leadership team and explore collaborative partnerships." }
   ]
 };
 

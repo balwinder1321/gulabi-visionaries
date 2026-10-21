@@ -13,15 +13,22 @@ export const AppProvider = ({ children }) => {
     return saved ? JSON.parse(saved) : initialOrganisation;
   });
 
+  const sanitizeEventData = (ev) => {
+    if (!ev || !ev.name || ev.name.includes('Test') || ev.name.includes('Gopala') || ev.name.includes('Poshak') || !ev.date || !ev.address) {
+      return initialEvent;
+    }
+    if (ev.venue && (ev.venue.includes('Gopala') || ev.venue.includes('Poshak'))) {
+      return initialEvent;
+    }
+    return { ...initialEvent, ...ev };
+  };
+
   const [eventData, setEventData] = useState(() => {
-    const saved = localStorage.getItem('gulabi_event_v2');
+    const saved = localStorage.getItem('gulabi_event_v3');
     if (!saved) return initialEvent;
     try {
       const parsed = JSON.parse(saved);
-      if (!parsed || !parsed.name || parsed.name.includes('Test') || !parsed.date || !parsed.address) {
-        return initialEvent;
-      }
-      return { ...initialEvent, ...parsed };
+      return sanitizeEventData(parsed);
     } catch (e) {
       return initialEvent;
     }
@@ -81,14 +88,9 @@ export const AppProvider = ({ children }) => {
             }
             if (result.data.event) {
               const cloudEv = result.data.event;
-              if (!cloudEv.name || cloudEv.name.includes('Test') || !cloudEv.date || !cloudEv.address) {
-                setEventData(initialEvent);
-                localStorage.setItem('gulabi_event_v2', JSON.stringify(initialEvent));
-              } else {
-                const merged = { ...initialEvent, ...cloudEv };
-                setEventData(merged);
-                localStorage.setItem('gulabi_event_v2', JSON.stringify(merged));
-              }
+              const sanitizedEv = sanitizeEventData(cloudEv);
+              setEventData(sanitizedEv);
+              localStorage.setItem('gulabi_event_v3', JSON.stringify(sanitizedEv));
             }
             if (result.data.members) {
               const sanitized = sanitizeMemberData(result.data.members);
@@ -116,14 +118,9 @@ export const AppProvider = ({ children }) => {
               localStorage.setItem('gulabi_organisation', JSON.stringify(item.data));
             }
             if (item.id === 'event' && item.data) {
-              if (!item.data.name || item.data.name.includes('Test') || !item.data.date || !item.data.address) {
-                setEventData(initialEvent);
-                localStorage.setItem('gulabi_event_v2', JSON.stringify(initialEvent));
-              } else {
-                const merged = { ...initialEvent, ...item.data };
-                setEventData(merged);
-                localStorage.setItem('gulabi_event_v2', JSON.stringify(merged));
-              }
+              const sanitizedEv = sanitizeEventData(item.data);
+              setEventData(sanitizedEv);
+              localStorage.setItem('gulabi_event_v3', JSON.stringify(sanitizedEv));
             }
             if (item.id === 'members' && item.data) {
               setMembers(item.data);
@@ -207,7 +204,7 @@ export const AppProvider = ({ children }) => {
   }, [organisation]);
 
   useEffect(() => {
-    localStorage.setItem('gulabi_event_v2', JSON.stringify(eventData));
+    localStorage.setItem('gulabi_event_v3', JSON.stringify(eventData));
   }, [eventData]);
 
   useEffect(() => {
