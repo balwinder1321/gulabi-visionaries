@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { InvitationPass } from '../components/InvitationPass';
 import { GoogleMapEmbed } from '../components/GoogleMapEmbed';
+import { DiwaliDiya } from '../components/DiwaliDiya';
 import { Sparkles, MapPin, Clock, Calendar, CheckCircle2, MessageCircle, X, User, Phone, Mail, Building, Navigation, ExternalLink, Briefcase, UserPlus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
@@ -72,11 +73,11 @@ export const InvitationPage = () => {
       particleCount: 90,
       spread: 80,
       origin: { y: 0.6 },
-      colors: ['#ec4899', '#f472b6', '#be185d', '#ffffff']
+      colors: ['#fbbf24', '#f59e0b', '#ec4899', '#ffffff', '#10b981']
     });
 
     const whatsappNum = organisation.whatsappNumber || '917742459585';
-    const message = `Hello, I am RSVPing for *${eventData.name}*!
+    const message = `🪔 Hello, I am RSVPing for *${eventData.name || 'Diwali Mahotsav & Business Showcase'}* on 8th Nov!
 
 Name: ${rsvpData.name}
 Phone: ${rsvpData.phone}
@@ -84,7 +85,7 @@ Email: ${rsvpData.email || 'N/A'}
 Business / Company: ${rsvpData.business || 'N/A'}
 Total Attendees: ${rsvpData.guests}
 
-Looking forward to attending!`;
+Wishing you a joyful and prosperous Diwali! Looking forward to attending!`;
 
     const waUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
@@ -92,8 +93,35 @@ Looking forward to attending!`;
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-20 space-y-20 max-w-5xl mx-auto px-4 sm:px-6">
+    <div className="min-h-screen pt-20 pb-20 space-y-16 max-w-5xl mx-auto px-4 sm:px-6">
       
+      {/* DIWALI FESTIVE HERO BANNER */}
+      <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-600 via-rose-600 to-amber-700 text-amber-50 shadow-2xl border-2 border-amber-300/60 overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <DiwaliDiya size="lg" className="shrink-0" />
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/25 border border-amber-300/40 text-[10px] font-black uppercase tracking-widest text-amber-200 mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-spin" />
+              <span>FESTIVAL OF LIGHTS • SPECIAL MEET</span>
+            </div>
+            <h1 className="text-2xl sm:text-4xl font-serif font-black text-yellow-100 tracking-tight">
+              Shubh Deepavali 2026
+            </h1>
+            <p className="text-xs sm:text-sm text-amber-100/90 font-medium mt-1 max-w-xl">
+              Celebrate prosperity, leadership, and entrepreneurship with Together We Rise & Gulabi Visionaries. Countdown to the Grand Diwali Celebration on 8th Nov in Jaipur, India!
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center sm:items-end gap-2 shrink-0">
+          <div className="px-4 py-2.5 rounded-2xl bg-black/30 border border-amber-300/50 text-center shadow-inner">
+            <span className="text-[10px] uppercase font-bold text-amber-200 block">DIWALI CELEBRATION</span>
+            <span className="text-base font-black text-yellow-200 font-serif">Sunday, 8th Nov 2026</span>
+            <span className="text-[10px] text-amber-300 block">Jaipur, India • 06:00 PM</span>
+          </div>
+        </div>
+      </div>
+
       {/* SECTION 1: TOP HANGING INVITATION BADGE */}
       <section className="text-center pt-2">
         <InvitationPass onRSVPClick={() => setRsvpModalOpen(true)} />
@@ -117,10 +145,10 @@ Looking forward to attending!`;
           </div>
 
           {/* Overlaid Venue Card */}
-          <div className="p-6 sm:p-8 bg-white border-t border-pink-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="p-6 sm:p-8 bg-white border-t border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-2 max-w-xl">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-100 text-pink-900 border border-pink-300 inline-block shadow-sm">
-                ADVERTISING & NETWORKING MEET
+              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-300 inline-block shadow-sm">
+                🪔 DIWALI CELEBRATION & NETWORKING MEET
               </span>
               <h3 className="text-2xl font-serif font-bold text-pink-950">{eventData.venue}</h3>
               <p className="text-xs text-gray-600 font-medium leading-relaxed">{eventData.address}</p>
@@ -401,8 +429,8 @@ Looking forward to attending!`;
                 <X className="w-5 h-5" />
               </button>
 
-              <h3 className="text-2xl font-serif font-bold text-pink-950 mb-2">RSVP / Advertising Inquiry</h3>
-              <p className="text-xs text-gray-600 mb-6 font-normal">Connect with Gulabi Visionaries & Together We Rise to showcase and advertise your brand in Jaipur, India.</p>
+              <h3 className="text-2xl font-serif font-bold text-amber-950 mb-2">🪔 RSVP / Diwali Celebration & Inquiry</h3>
+              <p className="text-xs text-gray-600 mb-6 font-normal">Reserve your seat for Together We Rise & Gulabi Visionaries Grand Diwali Celebration on 8th Nov 2026 in Jaipur, India.</p>
 
               <form onSubmit={handleRSVPSubmit} className="space-y-4">
                 <div>

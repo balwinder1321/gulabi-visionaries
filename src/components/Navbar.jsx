@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import { useApp } from '../context/AppContext';
+import { DiwaliBanner } from './DiwaliBanner';
+import { DiwaliDiya } from './DiwaliDiya';
 import { Calendar, Users, UserPlus, ShieldCheck, Menu, X, Sparkles, MessageCircle } from 'lucide-react';
 
 export const Navbar = () => {
@@ -23,7 +25,7 @@ export const Navbar = () => {
   }, []);
 
   const allNavItems = [
-    { label: 'Event Invitation', path: '/', icon: Calendar, highlight: true },
+    { label: '🪔 Diwali Invitation', path: '/', icon: Calendar, highlight: true },
     { label: 'Members Directory', path: '/members', icon: Users, requiresDirectory: true },
     { label: 'Network Overview', path: '/about', icon: Sparkles },
     { label: 'Join Us', path: '/join', icon: UserPlus },
@@ -38,17 +40,24 @@ export const Navbar = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/95 backdrop-blur-xl border-b border-pink-200/80 py-3 shadow-[0_4px_20px_rgba(236,72,153,0.12)]' 
-        : 'bg-gradient-to-b from-[#fff0f5]/95 via-[#fff5f8]/80 to-transparent py-5'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        
-        {/* Brand Logo */}
-        <Link to="/" onClick={() => setMobileMenuOpen(false)}>
-          <Logo size="md" showTagline={false} />
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+      {/* Festive Announcement Banner */}
+      <DiwaliBanner />
+
+      <div className={`transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/95 backdrop-blur-xl border-b border-pink-200/80 py-2.5 shadow-[0_4px_20px_rgba(236,72,153,0.12)]' 
+          : 'bg-gradient-to-b from-[#fff0f5]/95 via-[#fff5f8]/80 to-transparent py-4'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          
+          {/* Brand Logo with Festive Diya */}
+          <div className="flex items-center gap-2">
+            <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+              <Logo size="md" showTagline={false} />
+            </Link>
+            <DiwaliDiya size="sm" className="hidden sm:inline-flex" />
+          </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1 bg-white/90 border border-pink-200/80 p-1.5 rounded-full backdrop-blur-md shadow-sm">
@@ -106,6 +115,7 @@ export const Navbar = () => {
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
+      </div>
       </div>
 
       {/* Mobile Drawer Menu */}

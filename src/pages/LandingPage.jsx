@@ -4,6 +4,7 @@ import { useApp } from '../context/AppContext';
 import { EventCountdown } from '../components/EventCountdown';
 import { MemberCard } from '../components/MemberCard';
 import { AdModal } from '../components/AdModal';
+import { DiwaliDiya } from '../components/DiwaliDiya';
 import { Sparkles, Calendar, Users, Award, ShieldCheck, ArrowRight, CheckCircle, Video, MessageCircle, Mic, CreditCard, ChevronRight, Quote, Play, ExternalLink, Target, Compass, TrendingUp, Tv, Globe, CheckCircle2, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -195,6 +196,38 @@ export const LandingPage = () => {
               </button>
             )}
           </div>
+        </motion.div>
+
+        {/* DIWALI FESTIVE CELEBRATION CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-600 via-rose-600 to-amber-700 text-amber-50 shadow-2xl border-2 border-amber-300/60 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left relative overflow-hidden"
+        >
+          <div className="flex items-center gap-4">
+            <DiwaliDiya size="lg" className="shrink-0" />
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/25 border border-amber-300/40 text-[10px] font-black uppercase tracking-widest text-amber-200 mb-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-spin" />
+                <span>DIWALI CELEBRATION • 8TH NOV 2026</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-serif font-black text-yellow-100">
+                Shubh Deepavali Meet & Business Showcase
+              </h3>
+              <p className="text-xs sm:text-sm text-amber-100/90 font-medium mt-1 max-w-lg">
+                Join 300+ visionary women leaders in Jaipur for an auspicious evening of Diya lighting, referral sharing, and festive high tea!
+              </p>
+            </div>
+          </div>
+
+          <Link
+            to="/invitation"
+            className="px-6 py-3.5 rounded-2xl bg-white text-rose-900 font-extrabold text-xs uppercase tracking-wider hover:bg-yellow-100 transition shadow-lg shrink-0 hover:scale-105 active:scale-95 flex items-center gap-2"
+          >
+            <span>View Diwali Pass</span>
+            <ArrowRight className="w-4 h-4 text-rose-700" />
+          </Link>
         </motion.div>
 
         {/* Featured Ad Bar Banner (If enabled) */}

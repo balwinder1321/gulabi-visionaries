@@ -21,20 +21,20 @@ export const initialOrganisation = {
 };
 
 export const initialEvent = {
-  name: "Advertise With Us",
-  date: "2026-11-15",
+  name: "Diwali Mahotsav & Business Showcase",
+  date: "2026-11-08",
   day: "Sunday",
-  time: "11:00 AM Onwards",
+  time: "06:00 PM Onwards",
   venue: "Jaipur, India",
   address: "Jaipur, Rajasthan, India",
-  description: "Join Together We Rise & Gulabi Visionaries to amplify your business reach. We invite visionary entrepreneurs, corporate partners, and brands to advertise, sponsor, and showcase your enterprise across our premium business network of 300+ women leaders, exclusive events, and digital platforms in Jaipur, India.",
+  description: "Celebrate the Festival of Lights with Together We Rise & Gulabi Visionaries! Join us for an auspicious Diwali Mahotsav & Business Showcase featuring traditional Diya lighting, brand spotlights, festive networking, high tea, and collaborative business opportunities with 300+ visionary women leaders in Jaipur, India.",
   googleMapsUrl: "https://www.google.com/maps?q=Jaipur,+Rajasthan,+India",
   bannerImage: "/assets/advertise_with_us.jpg",
   agenda: [
-    { time: "11:00 AM", title: "Brand Spotlight & Advertising Opportunities", desc: "Discover website banners, event sponsorship & podcast spotlight packages." },
-    { time: "11:45 AM", title: "Network Showcase & Media Reach", desc: "Showcase your brand to 300+ women entrepreneurs and thousands of site visitors." },
-    { time: "12:30 PM", title: "One-on-One Brand Strategy & Sponsorship Consultation", desc: "Tailored promotion strategies for your enterprise." },
-    { time: "01:15 PM", title: "High Tea & Visionary Networking", desc: "Connect with the leadership team and explore collaborative partnerships." }
+    { time: "06:00 PM", title: "Diya Lighting Ceremony & Auspicious Welcome", desc: "Traditional lighting of lamps, welcome high tea & open networking." },
+    { time: "06:45 PM", title: "Diwali Brand Spotlight & Advertising Showcase", desc: "Discover website banners, event sponsorships, and partner promotions." },
+    { time: "07:30 PM", title: "Celebration, Referral Sharing & High-Impact Networking", desc: "Exchange high-value business leads and celebrate community milestones." },
+    { time: "08:15 PM", title: "Festive High Tea, Sweets & Firecrackers Celebration", desc: "Diwali sweets distribution, photo session and grand celebration." }
   ]
 };
 
