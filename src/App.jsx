@@ -11,7 +11,6 @@ import { AdminLoginPage } from './pages/AdminLoginPage';
 import { AdminDashboardPage } from './pages/AdminDashboardPage';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { DiwaliCrackers } from './components/DiwaliCrackers';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -46,10 +45,9 @@ export function AppContent() {
   const { organisation } = useApp();
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#f7a6c8] text-gray-900 selection:bg-pink-500 selection:text-white relative">
+    <div className="min-h-screen flex flex-col justify-between bg-[#f7a6c8] text-gray-900 selection:bg-pink-500 selection:text-white">
       <ScrollToTop />
       <Navbar />
-      <DiwaliCrackers />
 
       <main className="flex-1">
         <Routes>
