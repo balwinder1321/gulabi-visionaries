@@ -49,7 +49,7 @@ export function AppContent() {
   return (
     <div className="min-h-screen flex flex-col justify-between bg-[#f7a6c8] text-gray-900 selection:bg-pink-500 selection:text-white">
       {showCelebration && (
-        <GoldenCelebration duration={2500} onComplete={() => setShowCelebration(false)} />
+        <GoldenCelebration duration={2000} onComplete={() => setShowCelebration(false)} />
       )}
       <ScrollToTop />
       <Navbar />
