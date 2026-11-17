@@ -21,21 +21,31 @@ export const initialOrganisation = {
 };
 
 export const initialEvent = {
-  name: "Field Visit of Dr. Ankita",
-  date: "Dates to be announced shortly",
-  dateNotice: "Dates and time will be announced shortly",
-  day: "Announcing Shortly",
-  time: "Time to be announced shortly",
-  venue: "Dr. Ankita's Center",
-  address: "Jaipur, Rajasthan, India",
-  description: "Join Gulabi Visionaries & Together We Rise for an exclusive Field Visit of Dr. Ankita. Connect with 300+ visionary women entrepreneurs, experience an insightful field visit, and discover collaborative networking opportunities in Jaipur. Dates and time will be announced shortly!",
-  googleMapsUrl: "https://www.google.com/maps?q=Jaipur,+Rajasthan,+India",
-  bannerImage: "/assets/field_visit_dr_ankita.jpg",
+  name: "Free Dental Health Day - Smile checkups for everyone by Dr. Ankita",
+  tagline: "FREE DENTAL HEALTH DAY",
+  subheading: "Smile checkups for everyone by Dr. Ankita",
+  doctor: "Dr. Ankita Agarwal",
+  clinic: "Dr. Ankita's Dental Implants and Maxillofacial surgery",
+  date: "2026-11-20",
+  dateNotice: "Friday, 20th Nov • 11:00 AM to 1:00 PM",
+  day: "Friday, 20th Nov",
+  time: "11:00 AM to 1:00 PM",
+  venue: "Smile by Ankita",
+  address: "12 Indraprasth colony, Amrapali marg, Vaishali nagar, Jaipur",
+  perks: "Free X-ray and tips for dental care",
+  contacts: [
+    { name: "Prachi Agrawal", phone: "7742459585" },
+    { name: "Pratibha Chaturvedi", phone: "8209574757" },
+    { name: "Deepika Saboo", phone: "9001299931" }
+  ],
+  description: "Gulabi Visionaries cordially invites you to Free Dental Health Day featuring 'Smile checkups for everyone by Dr. Ankita' at Smile by Ankita clinic. Avail complimentary dental consultations, free X-rays, and personalized dental care tips by Dr. Ankita Agarwal (Dental Implants & Maxillofacial surgery).",
+  googleMapsUrl: "https://www.google.com/maps?q=12+Indraprasth+colony+Amrapali+marg+Vaishali+nagar+Jaipur",
+  bannerImage: "/assets/free_dental_checkup_dr_ankita.jpg",
   agenda: [
-    { time: "TBA", title: "Arrival & Welcome of Members", desc: "Welcome high tea & open networking with visionary women leaders." },
-    { time: "TBA", title: "Spotlight & Field Visit with Dr. Ankita", desc: "Exclusive showcase and interactive presentation by Dr. Ankita." },
-    { time: "TBA", title: "Business Networking & Referral Sharing", desc: "Exchange high-value business leads and member introductions." },
-    { time: "TBA", title: "Commemorative Photo Session & High Tea", desc: "Group photos, refreshments, and celebration." }
+    { time: "11:00 AM", title: "Arrival & Welcome", desc: "Welcome of attendees and members at Smile by Ankita clinic." },
+    { time: "11:15 AM - 12:30 PM", title: "Free Smile Checkups & X-Rays", desc: "Complimentary checkups & free X-rays by Dr. Ankita Agarwal." },
+    { time: "12:30 PM - 12:50 PM", title: "Dental Care Tips & Oral Hygiene", desc: "Actionable dental wellness tips and Q&A session with Dr. Ankita." },
+    { time: "12:50 PM - 1:00 PM", title: "Networking & Photo Session", desc: "Commemorative group photos and networking with Gulabi Visionaries." }
   ]
 };
 

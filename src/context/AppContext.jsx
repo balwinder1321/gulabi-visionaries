@@ -14,17 +14,17 @@ export const AppProvider = ({ children }) => {
   });
 
   const sanitizeEventData = (ev) => {
-    if (!ev || !ev.name || ev.name.includes('Test') || ev.name.includes('Gopala') || ev.name.includes('Poshak') || ev.name.toLowerCase().includes('diwali') || ev.name.toLowerCase().includes('deepavali') || ev.name.toLowerCase().includes('advertise') || !ev.address) {
+    if (!ev || !ev.name || ev.name.includes('Test') || ev.name.includes('Gopala') || ev.name.includes('Poshak') || ev.name.toLowerCase().includes('diwali') || ev.name.toLowerCase().includes('deepavali') || ev.name.toLowerCase().includes('advertise') || ev.name.includes('Field Visit') || !ev.date || ev.date.includes('announced') || !ev.address || ev.address.includes('Jaipur, Rajasthan, India')) {
       return initialEvent;
     }
-    if (ev.venue && (ev.venue.includes('Gopala') || ev.venue.includes('Poshak'))) {
+    if (ev.venue && (ev.venue.includes('Gopala') || ev.venue.includes('Poshak') || ev.venue.includes("Dr. Ankita's Center"))) {
       return initialEvent;
     }
     return { ...initialEvent, ...ev };
   };
 
   const [eventData, setEventData] = useState(() => {
-    const saved = localStorage.getItem('gulabi_event_v6');
+    const saved = localStorage.getItem('gulabi_event_v7');
     if (!saved) return initialEvent;
     try {
       const parsed = JSON.parse(saved);
@@ -90,7 +90,7 @@ export const AppProvider = ({ children }) => {
               const cloudEv = result.data.event;
               const sanitizedEv = sanitizeEventData(cloudEv);
               setEventData(sanitizedEv);
-              localStorage.setItem('gulabi_event_v6', JSON.stringify(sanitizedEv));
+              localStorage.setItem('gulabi_event_v7', JSON.stringify(sanitizedEv));
             }
             if (result.data.members) {
               const sanitized = sanitizeMemberData(result.data.members);
@@ -120,7 +120,7 @@ export const AppProvider = ({ children }) => {
             if (item.id === 'event' && item.data) {
               const sanitizedEv = sanitizeEventData(item.data);
               setEventData(sanitizedEv);
-              localStorage.setItem('gulabi_event_v6', JSON.stringify(sanitizedEv));
+              localStorage.setItem('gulabi_event_v7', JSON.stringify(sanitizedEv));
             }
             if (item.id === 'members' && item.data) {
               setMembers(item.data);
@@ -204,7 +204,7 @@ export const AppProvider = ({ children }) => {
   }, [organisation]);
 
   useEffect(() => {
-    localStorage.setItem('gulabi_event_v6', JSON.stringify(eventData));
+    localStorage.setItem('gulabi_event_v7', JSON.stringify(eventData));
   }, [eventData]);
 
   useEffect(() => {

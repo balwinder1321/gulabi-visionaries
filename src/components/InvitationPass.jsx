@@ -23,7 +23,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
 
   const handleShareWhatsApp = () => {
     const url = window.location.origin + '/invitation';
-    const text = `🌸 *GULABI VISIONARIES - OFFICIAL INVITATION* 🌸\n\nYou are cordially invited to *${eventData.name || 'Field Visit of Dr. Ankita'}* hosted by *${organisation.name}*!\n\n📅 Date & Time: ${eventData.dateNotice || eventData.date || 'Dates and time will be announced shortly'}\n📍 Venue: ${eventData.venue || "Dr. Ankita's Center"}\n\nClick here to view your VIP invitation pass & RSVP:\n${url}`;
+    const text = `🌸 *GULABI VISIONARIES - OFFICIAL INVITATION* 🌸\n\n🦷 *FREE DENTAL HEALTH DAY*\n*Smile checkups for everyone by Dr. Ankita*\n\n📅 Date: Friday, 20th Nov\n⏰ Time: 11:00 AM to 1:00 PM\n📍 Venue: Smile by Ankita, 12 Indraprasth colony, Amrapali marg, Vaishali nagar, Jaipur\n✨ *Special Perks:* Free X-ray and tips for dental care\n📞 Helpline: 7742459585, 8209574757, 9001299931\n\nClick here to view your VIP invitation pass & RSVP:\n${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -138,6 +138,24 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <span className="text-xs font-bold uppercase tracking-widest text-pink-600">Official Pass Details</span>
                 <h3 className="text-2xl font-serif font-bold text-pink-950">{eventData.name}</h3>
                 <p className="text-xs text-gray-600 font-normal leading-relaxed">{eventData.description}</p>
+              </div>
+
+              {/* Special Perks & Contact Bar from Poster */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200 text-emerald-950 space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">✨</span>
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-800">
+                    Free X-ray and tips for dental care
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-emerald-200/60 text-[11px] font-semibold text-emerald-900">
+                  <span className="text-[10px] uppercase font-bold text-emerald-700">Helpline Numbers:</span>
+                  <a href="tel:7742459585" className="hover:underline">7742459585</a>
+                  <span>•</span>
+                  <a href="tel:8209574757" className="hover:underline">8209574757</a>
+                  <span>•</span>
+                  <a href="tel:9001299931" className="hover:underline">9001299931</a>
+                </div>
               </div>
 
               {/* Agenda Items */}

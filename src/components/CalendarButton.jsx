@@ -21,9 +21,9 @@ export const CalendarButton = ({ className = '' }) => {
     const details = encodeURIComponent(eventData.description || '');
     const location = encodeURIComponent(`${eventData.venue}, ${eventData.address}`);
     
-    // Parse date (e.g. 2026-11-15 -> 20261115T103000Z)
-    const dateStr = (eventData.date || '2026-11-15').replace(/-/g, '');
-    const dates = `${dateStr}T050000Z/${dateStr}T083000Z`;
+    // Parse date (e.g. 2026-11-20 -> 20261120T053000Z for 11:00 AM to 1:00 PM IST)
+    const dateStr = (eventData.date || '2026-11-20').replace(/-/g, '');
+    const dates = `${dateStr}T053000Z/${dateStr}T073000Z`;
 
     const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`;
     window.open(googleUrl, '_blank');
@@ -33,7 +33,7 @@ export const CalendarButton = ({ className = '' }) => {
     const title = eventData.name || 'Gulabi Visionaries Event';
     const details = eventData.description || '';
     const location = `${eventData.venue}, ${eventData.address}`;
-    const dateStr = (eventData.date || '2026-11-15').replace(/-/g, '');
+    const dateStr = (eventData.date || '2026-11-20').replace(/-/g, '');
 
     const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
@@ -42,8 +42,8 @@ BEGIN:VEVENT
 SUMMARY:${title}
 DESCRIPTION:${details}
 LOCATION:${location}
-DTSTART:${dateStr}T050000Z
-DTEND:${dateStr}T083000Z
+DTSTART:${dateStr}T053000Z
+DTEND:${dateStr}T073000Z
 END:VEVENT
 END:VCALENDAR`;
 
