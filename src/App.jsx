@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { GoldenCelebration } from './components/GoldenCelebration';
 import { LandingPage } from './pages/LandingPage';
 import { InvitationPage } from './pages/InvitationPage';
 import { MembersPage } from './pages/MembersPage';
@@ -43,9 +44,13 @@ function NotificationToast() {
 
 export function AppContent() {
   const { organisation } = useApp();
+  const [showCelebration, setShowCelebration] = useState(true);
 
   return (
     <div className="min-h-screen flex flex-col justify-between bg-[#f7a6c8] text-gray-900 selection:bg-pink-500 selection:text-white">
+      {showCelebration && (
+        <GoldenCelebration duration={2500} onComplete={() => setShowCelebration(false)} />
+      )}
       <ScrollToTop />
       <Navbar />
 

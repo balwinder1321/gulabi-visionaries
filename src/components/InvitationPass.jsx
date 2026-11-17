@@ -17,7 +17,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
       particleCount: 80,
       spread: 90,
       origin: { y: 0.5 },
-      colors: ['#ec4899', '#f472b6', '#be185d', '#ffffff', '#ffd1e8']
+      colors: ['#ffd700', '#f59e0b', '#ec4899', '#f472b6', '#ffffff', '#fbbf24']
     });
   };
 
