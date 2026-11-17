@@ -174,8 +174,8 @@ export const Footer = () => {
           <p>© {new Date().getFullYear()} {organisation.name || 'Gulabi Visionaries'}. All Rights Reserved. Empowering Women Leaders.</p>
           
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-pink-900 font-medium">
-              Crafted with <Heart className="w-3.5 h-3.5 fill-pink-600 text-pink-600 animate-pulse" /> for Visionary Women
+            <span className="text-pink-900 font-medium">
+              Created by <span className="font-bold text-pink-950">BOB digital</span>
             </span>
             <button
               onClick={scrollToTop}
