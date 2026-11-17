@@ -76,7 +76,7 @@ export const InvitationPage = () => {
     });
 
     const whatsappNum = organisation.whatsappNumber || '917742459585';
-    const message = `Hello, I am RSVPing for *${eventData.name}*!
+    const message = `Hello, I am RSVPing / Registering my interest for *${eventData.name || 'Field Visit of Dr. Ankita'}*!
 
 Name: ${rsvpData.name}
 Phone: ${rsvpData.phone}
@@ -84,7 +84,7 @@ Email: ${rsvpData.email || 'N/A'}
 Business / Company: ${rsvpData.business || 'N/A'}
 Total Attendees: ${rsvpData.guests}
 
-Looking forward to attending!`;
+Please notify me once the dates and time are announced. Looking forward to attending!`;
 
     const waUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
@@ -120,14 +120,14 @@ Looking forward to attending!`;
           <div className="p-6 sm:p-8 bg-white border-t border-pink-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-2 max-w-xl">
               <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-100 text-pink-900 border border-pink-300 inline-block shadow-sm">
-                ADVERTISING & NETWORKING MEET
+                FIELD VISIT & NETWORKING MEET
               </span>
-              <h3 className="text-2xl font-serif font-bold text-pink-950">{eventData.venue}</h3>
-              <p className="text-xs text-gray-600 font-medium leading-relaxed">{eventData.address}</p>
+              <h3 className="text-2xl font-serif font-bold text-pink-950">{eventData.venue || "Dr. Ankita's Center"}</h3>
+              <p className="text-xs text-gray-600 font-medium leading-relaxed">{eventData.address || "Jaipur, Rajasthan, India"}</p>
               
               <div className="flex items-center gap-2 text-xs text-pink-800 font-bold pt-1">
                 <Calendar className="w-4 h-4 text-pink-600" />
-                <span>{eventData.day}, {eventData.date} • {eventData.time}</span>
+                <span>{eventData.dateNotice || "Dates and time will be announced shortly"}</span>
               </div>
             </div>
 
@@ -401,8 +401,8 @@ Looking forward to attending!`;
                 <X className="w-5 h-5" />
               </button>
 
-              <h3 className="text-2xl font-serif font-bold text-pink-950 mb-2">RSVP / Advertising Inquiry</h3>
-              <p className="text-xs text-gray-600 mb-6 font-normal">Connect with Gulabi Visionaries & Together We Rise to showcase and advertise your brand in Jaipur, India.</p>
+              <h3 className="text-2xl font-serif font-bold text-pink-950 mb-2">RSVP / Register Interest</h3>
+              <p className="text-xs text-gray-600 mb-6 font-normal">Reserve your seat for Field Visit of Dr. Ankita. Dates and time will be announced shortly.</p>
 
               <form onSubmit={handleRSVPSubmit} className="space-y-4">
                 <div>
@@ -445,7 +445,7 @@ Looking forward to attending!`;
                   className="w-full py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-md transition flex items-center justify-center gap-2 mt-4"
                 >
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Submit Inquiry via WhatsApp</span>
+                  <span>Submit RSVP via WhatsApp</span>
                 </button>
               </form>
             </motion.div>

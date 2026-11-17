@@ -5,6 +5,17 @@ import { useApp } from '../context/AppContext';
 export const CalendarButton = ({ className = '' }) => {
   const { eventData } = useApp();
 
+  const hasValidDate = eventData?.date && /^\d{4}-\d{2}-\d{2}$/.test(eventData.date);
+
+  if (!hasValidDate) {
+    return (
+      <div className={`flex items-center gap-2 px-4 py-2.5 rounded-full bg-pink-50 border border-pink-200 text-xs font-semibold text-pink-900 ${className}`}>
+        <Calendar className="w-4 h-4 text-pink-600 shrink-0" />
+        <span>Dates to be announced</span>
+      </div>
+    );
+  }
+
   const handleGoogleCalendar = () => {
     const title = encodeURIComponent(eventData.name || 'Gulabi Visionaries Event');
     const details = encodeURIComponent(eventData.description || '');

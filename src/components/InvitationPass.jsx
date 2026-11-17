@@ -23,7 +23,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
 
   const handleShareWhatsApp = () => {
     const url = window.location.origin + '/invitation';
-    const text = `🌸 *TOGETHER WE RISE - OFFICIAL INVITATION* 🌸\n\nYou are cordially invited to *${eventData.name || 'Advertise With Us'}* hosted by *${organisation.name}*!\n\n📅 Date: ${eventData.date} (${eventData.day})\n⏰ Time: ${eventData.time}\n📍 Venue: ${eventData.venue}\n\nClick here to view your VIP invitation pass & advertise with us:\n${url}`;
+    const text = `🌸 *GULABI VISIONARIES - OFFICIAL INVITATION* 🌸\n\nYou are cordially invited to *${eventData.name || 'Field Visit of Dr. Ankita'}* hosted by *${organisation.name}*!\n\n📅 Date & Time: ${eventData.dateNotice || eventData.date || 'Dates and time will be announced shortly'}\n📍 Venue: ${eventData.venue || "Dr. Ankita's Center"}\n\nClick here to view your VIP invitation pass & RSVP:\n${url}`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -77,13 +77,13 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <div className="space-y-1">
                   <span className="text-xs font-bold uppercase tracking-widest text-pink-600 block">YOU'RE INVITED</span>
                   <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-pink-950 leading-tight">
-                    {eventData.name || 'Advertise With Us'}
+                    {eventData.name || 'Field Visit of Dr. Ankita'}
                   </h2>
                 </div>
 
                 {eventData.bannerImage && (
-                  <div className="w-full max-h-64 rounded-2xl overflow-hidden border border-pink-200 shadow-sm bg-pink-50 flex items-center justify-center p-1.5 my-2">
-                    <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-auto max-h-60 object-contain rounded-xl" />
+                  <div className="w-full max-h-72 rounded-2xl overflow-hidden border border-pink-200 shadow-sm bg-pink-50 flex items-center justify-center p-1.5 my-2">
+                    <img src={eventData.bannerImage} alt={eventData.name} className="w-full h-auto max-h-68 object-contain rounded-xl" />
                   </div>
                 )}
 
@@ -92,12 +92,12 @@ export const InvitationPass = ({ onRSVPClick }) => {
                 <div className="space-y-2 text-sm text-gray-700 font-medium">
                   <div className="flex items-center justify-center gap-2">
                     <Calendar className="w-4 h-4 text-pink-600" />
-                    <span>{eventData.date || '2026-11-15'}{eventData.day ? ` (${eventData.day})` : ''}</span>
+                    <span>{eventData.dateNotice || eventData.date || 'Dates to be announced shortly'}</span>
                   </div>
 
                   <div className="flex items-center justify-center gap-2 text-xs text-gray-600">
                     <MapPin className="w-4 h-4 text-pink-600 shrink-0" />
-                    <span className="truncate max-w-xs">{eventData.venue || 'Jaipur, India'}</span>
+                    <span className="truncate max-w-xs">{eventData.venue || "Dr. Ankita's Center"}</span>
                   </div>
                 </div>
 
@@ -168,7 +168,7 @@ export const InvitationPass = ({ onRSVPClick }) => {
                   className="w-full py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white shadow-md transition flex items-center justify-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Inquire / RSVP to Advertise</span>
+                  <span>RSVP / Register Interest</span>
                 </button>
 
                 <div className="flex items-center gap-2">

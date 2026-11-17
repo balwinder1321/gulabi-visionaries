@@ -21,20 +21,21 @@ export const initialOrganisation = {
 };
 
 export const initialEvent = {
-  name: "Advertise With Us",
-  date: "2026-11-15",
-  day: "Sunday",
-  time: "11:00 AM Onwards",
-  venue: "Jaipur, India",
+  name: "Field Visit of Dr. Ankita",
+  date: "Dates to be announced shortly",
+  dateNotice: "Dates and time will be announced shortly",
+  day: "Announcing Shortly",
+  time: "Time to be announced shortly",
+  venue: "Dr. Ankita's Center",
   address: "Jaipur, Rajasthan, India",
-  description: "Join Together We Rise & Gulabi Visionaries to amplify your business reach. We invite visionary entrepreneurs, corporate partners, and brands to advertise, sponsor, and showcase your enterprise across our premium business network of 300+ women leaders, exclusive events, and digital platforms in Jaipur, India.",
+  description: "Join Gulabi Visionaries & Together We Rise for an exclusive Field Visit of Dr. Ankita. Connect with 300+ visionary women entrepreneurs, experience an insightful field visit, and discover collaborative networking opportunities in Jaipur. Dates and time will be announced shortly!",
   googleMapsUrl: "https://www.google.com/maps?q=Jaipur,+Rajasthan,+India",
-  bannerImage: "/assets/advertise_with_us.jpg",
+  bannerImage: "/assets/field_visit_dr_ankita.jpg",
   agenda: [
-    { time: "11:00 AM", title: "Brand Spotlight & Advertising Opportunities", desc: "Discover website banners, event sponsorship & podcast spotlight packages." },
-    { time: "11:45 AM", title: "Network Showcase & Media Reach", desc: "Showcase your brand to 300+ women entrepreneurs and thousands of site visitors." },
-    { time: "12:30 PM", title: "One-on-One Brand Strategy & Sponsorship Consultation", desc: "Tailored promotion strategies for your enterprise." },
-    { time: "01:15 PM", title: "High Tea & Visionary Networking", desc: "Connect with the leadership team and explore collaborative partnerships." }
+    { time: "TBA", title: "Arrival & Welcome of Members", desc: "Welcome high tea & open networking with visionary women leaders." },
+    { time: "TBA", title: "Spotlight & Field Visit with Dr. Ankita", desc: "Exclusive showcase and interactive presentation by Dr. Ankita." },
+    { time: "TBA", title: "Business Networking & Referral Sharing", desc: "Exchange high-value business leads and member introductions." },
+    { time: "TBA", title: "Commemorative Photo Session & High Tea", desc: "Group photos, refreshments, and celebration." }
   ]
 };
 
