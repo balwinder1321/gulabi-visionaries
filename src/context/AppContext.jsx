@@ -108,54 +108,65 @@ export const AppProvider = ({ children }) => {
         console.warn('Cloud store fetch notice:', err);
       }
 
-      // 2. Fetch from Supabase Table if user created table
-      try {
-        const { data, error } = await supabase.from('app_data').select('*');
-        if (!error && data && data.length > 0) {
-          data.forEach(item => {
-            if (item.id === 'organisation' && item.data) {
-              setOrganisation(item.data);
-              localStorage.setItem('gulabi_organisation', JSON.stringify(item.data));
-            }
-            if (item.id === 'event' && item.data) {
-              const sanitizedEv = sanitizeEventData(item.data);
-              setEventData(sanitizedEv);
-              localStorage.setItem('gulabi_event_v7', JSON.stringify(sanitizedEv));
-            }
-            if (item.id === 'members' && item.data) {
-              setMembers(item.data);
-              localStorage.setItem('gulabi_members', JSON.stringify(item.data));
-            }
-            if (item.id === 'ad' && item.data) {
-              setAdData(item.data);
-              localStorage.setItem('gulabi_ad', JSON.stringify(item.data));
-            }
-          });
-          setIsCloudSynced(true);
+      // 2. Fetch from Supabase Table if configured
+      if (supabase) {
+        try {
+          const { data, error } = await supabase.from('app_data').select('*');
+          if (!error && data && data.length > 0) {
+            data.forEach(item => {
+              if (item.id === 'organisation' && item.data) {
+                setOrganisation(item.data);
+                localStorage.setItem('gulabi_organisation', JSON.stringify(item.data));
+              }
+              if (item.id === 'event' && item.data) {
+                const sanitizedEv = sanitizeEventData(item.data);
+                setEventData(sanitizedEv);
+                localStorage.setItem('gulabi_event_v7', JSON.stringify(sanitizedEv));
+              }
+              if (item.id === 'members' && item.data) {
+                setMembers(item.data);
+                localStorage.setItem('gulabi_members', JSON.stringify(item.data));
+              }
+              if (item.id === 'ad' && item.data) {
+                setAdData(item.data);
+                localStorage.setItem('gulabi_ad', JSON.stringify(item.data));
+              }
+            });
+            setIsCloudSynced(true);
+          }
+        } catch (err) {
+          console.warn('Supabase sync notice:', err);
         }
-      } catch (err) {
-        console.warn('Supabase sync notice:', err);
       }
     };
 
     fetchCloudData();
 
-    // Subscribe to Realtime Postgres Changes
-    const subscription = supabase
-      .channel('public:app_data')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'app_data' }, (payload) => {
-        if (payload.new && payload.new.id && payload.new.data) {
-          const { id, data } = payload.new;
-          if (id === 'organisation') setOrganisation(data);
-          if (id === 'event') setEventData(data);
-          if (id === 'members') setMembers(data);
-          if (id === 'ad') setAdData(data);
-        }
-      })
-      .subscribe();
+    // Subscribe to Realtime Postgres Changes only if Supabase is active
+    let subscription = null;
+    if (supabase) {
+      try {
+        subscription = supabase
+          .channel('public:app_data')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'app_data' }, (payload) => {
+            if (payload.new && payload.new.id && payload.new.data) {
+              const { id, data } = payload.new;
+              if (id === 'organisation') setOrganisation(data);
+              if (id === 'event') setEventData(data);
+              if (id === 'members') setMembers(data);
+              if (id === 'ad') setAdData(data);
+            }
+          })
+          .subscribe();
+      } catch (err) {
+        console.warn('Realtime subscription notice:', err);
+      }
+    }
 
     return () => {
-      supabase.removeChannel(subscription);
+      if (supabase && subscription) {
+        supabase.removeChannel(subscription);
+      }
     };
   }, []);
 
@@ -186,15 +197,17 @@ export const AppProvider = ({ children }) => {
     // Push full state to Cloud Store
     pushGlobalCloudState(newOrg, newEv, newMem, newAd);
 
-    // Also push to Supabase
-    try {
-      await supabase.from('app_data').upsert({
-        id: key,
-        data: dataObj,
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'id' });
-    } catch (err) {
-      console.warn(`Supabase save notice for ${key}:`, err);
+    // Also push to Supabase if configured
+    if (supabase) {
+      try {
+        await supabase.from('app_data').upsert({
+          id: key,
+          data: dataObj,
+          updated_at: new Date().toISOString()
+        }, { onConflict: 'id' });
+      } catch (err) {
+        console.warn(`Supabase save notice for ${key}:`, err);
+      }
     }
   };
 
